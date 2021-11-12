@@ -29,25 +29,41 @@
                     <table class="table table-hover table-striped" id="table_id">
                       <thead>
                         <th>ID</th>
-                        <th>Nama Kamar</th>
-                        <th>Nama Kepala Kamar</th>
+                        <th>Nama Kategori</th>
+                        <th>Uang Makan</th>
+                        <th>Uang Infaq</th>
+                        <th>Uang Kesehatan</th>
+                        <th>Uang Tabungan</th>
+                        <th>Uang Tambahan</th>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>a</td>
-                          <td>Rendi</td>
-                        </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>b</td>
-                          <td>Bagusi</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>c</td>
-                          <td>Faisal</td>
-                        </tr>
+                          <tr>
+                              <td>1</td>
+                              <td>Dio</td>
+                              <td>1.000</td>
+                              <td>1.000</td>
+                              <td>1.000</td>
+                              <td>1.000</td>
+                              <td>1.000</td>
+                          </tr>
+                          <tr>
+                              <td>2</td>
+                              <td>Bagus</td>
+                              <td>2.000</td>
+                              <td>2.000</td>
+                              <td>2.000</td>
+                              <td>2.000</td>
+                              <td>2.000</td>
+                          </tr>
+                          <tr>
+                              <td>3</td>
+                              <td>Rendi</td>
+                              <td>3.000</td>
+                              <td>3.000</td>
+                              <td>3.000</td>
+                              <td>3.000</td>
+                              <td>3.000</td>
+                          </tr>
                       </tbody>
                     </table>
                   </div>

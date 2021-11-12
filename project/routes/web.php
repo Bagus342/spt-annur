@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\BiodataController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\KamarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,4 +24,12 @@ Route::prefix('/biodata')->group(function () {
     });
     // route view
     Route::get('/', [BiodataController::class, 'index']);
+});
+
+Route::prefix('/kamar')->group(function () {
+    Route::prefix('/view')->group(function () {
+        Route::get('/add', [KamarController::class, 'add']);
+    });
+    // route view
+    Route::get('/', [KamarController::class, 'index']);
 });

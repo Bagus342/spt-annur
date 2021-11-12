@@ -68,7 +68,7 @@
                 </a>
               </li>
               <li class="">
-                <a href="#" class="dropdown-text">
+                <a href="{{ url('/') }}/kamar" class="dropdown-text">
                   <i class="pe-7s-less"></i>
                   <p class="">Kamar</p>
                 </a>

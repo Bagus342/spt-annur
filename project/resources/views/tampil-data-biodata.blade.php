@@ -21,7 +21,6 @@
                         <h4 class="title">Biodata Santri</h4>
                       </div>
                       <div class="col-md-2">
-                        <!-- Button trigger modal -->
                         <a href="{{ url('/') }}/biodata/view/add" class="btn btn-block btn-default">Tambah</a>
                       </div>
                     </div>

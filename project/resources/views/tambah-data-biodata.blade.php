@@ -1,6 +1,13 @@
 @extends('templates.template')
 
 @section('content')
+
+        <style>
+          input[type="file"]{
+            display: none;
+          }
+        </style>
+
         <div class="content">
             <div class="container-fluid">
               <div class="row">
@@ -64,7 +71,8 @@
                           <img class="avatar border-gray" src="{{asset('img/default.png')}}" alt="..." />
   
                           <div class="title">
-                            <button class="btn btn-block">Tambah foto</button>
+                            <input type="file" id="foto" accept="image/*">
+                            <label for="foto" class="btn btn-block">Tambah foto</label>
                           </div>
                         </a>
                       </div>
