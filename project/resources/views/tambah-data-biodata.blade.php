@@ -4,7 +4,6 @@
 
         <style>
           input[type="file"]{
-            display: none;
           }
         </style>
 
@@ -53,6 +52,10 @@
                           <label for="status1">Aktif</label><br>
                           <input type="radio" id="status0" name="status" value="0">
                           <label for="status0">Tidak Aktif</label>
+                        </div>
+                        <div class="form-group">
+                              <label for="foto" class="">Foto Santri</label>
+                              <input type="file" name="foto" id="foto" accept="image/*">
                         </div>
                         <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
                         <div class="clearfix"></div>
