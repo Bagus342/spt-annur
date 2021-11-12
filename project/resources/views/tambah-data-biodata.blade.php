@@ -14,35 +14,38 @@
                         @csrf
                         <div class="form-group">
                           <label>Nama Santri</label>
-                          <input type="text" name="nama_santri" class="form-control" placeholder="" />
+                          <input type="text" name="nama_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
                           <label>No Induk</label>
-                          <input type="number" name="no_induk" class="form-control" placeholder="" />
+                          <input type="number" name="no_induk" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
                           <label>Tempat Santri</label>
-                          <input type="text" name="tempat_santri" class="form-control" placeholder="" />
+                          <input type="text" name="tempat_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
                           <label>Tanggal Santri</label>
-                          <input type="date" name="tanggal_santri" class="form-control" placeholder="" />
+                          <input type="date" name="tanggal_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
                           <label>Wali Santri</label>
-                          <input type="text" name="wali_santri" class="form-control" placeholder="" />
+                          <input type="text" name="wali_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
                           <label>Alamat Santri</label>
-                          <input type="text" name="alamat_santri" class="form-control" placeholder="" />
+                          <input type="text" name="alamat_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
-                          <label>Status</label>
-                          <input type="text" class="form-control" placeholder="" />
+                          <label>Status</label><br>
+                          <input type="radio" id="status1" name="status" value="1">
+                          <label for="status1">Aktif</label><br>
+                          <input type="radio" id="status0" name="status" value="0">
+                          <label for="status0">Tidak Aktif</label>
                         </div>
                         <div class="form-group">
                           <label>Tanggal Masuk</label>
-                          <input type="date" name="tanggal_masuk" class="form-control" placeholder="" />
+                          <input type="date" name="tanggal_masuk" class="form-control" placeholder="" required/>
                         </div>
                         <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
                         <div class="clearfix"></div>
