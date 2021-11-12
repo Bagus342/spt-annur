@@ -11,29 +11,30 @@
                     </div>
                     <div class="content">
                       <form>
+                        @csrf
                         <div class="form-group">
                           <label>Nama Santri</label>
-                          <input type="text" class="form-control" placeholder="" />
+                          <input type="text" name="nama_santri" class="form-control" placeholder="" />
                         </div>
                         <div class="form-group">
                           <label>No Induk</label>
-                          <input type="number" class="form-control" placeholder="" />
+                          <input type="number" name="no_induk" class="form-control" placeholder="" />
                         </div>
                         <div class="form-group">
                           <label>Tempat Santri</label>
-                          <input type="text" class="form-control" placeholder="" />
+                          <input type="text" name="tempat_santri" class="form-control" placeholder="" />
                         </div>
                         <div class="form-group">
                           <label>Tanggal Santri</label>
-                          <input type="date" class="form-control" placeholder="" />
+                          <input type="date" name="tanggal_santri" class="form-control" placeholder="" />
                         </div>
                         <div class="form-group">
                           <label>Wali Santri</label>
-                          <input type="text" class="form-control" placeholder="" />
+                          <input type="text" name="wali_santri" class="form-control" placeholder="" />
                         </div>
                         <div class="form-group">
                           <label>Alamat Santri</label>
-                          <input type="text" class="form-control" placeholder="" />
+                          <input type="text" name="alamat_santri" class="form-control" placeholder="" />
                         </div>
                         <div class="form-group">
                           <label>Status</label>
@@ -41,7 +42,7 @@
                         </div>
                         <div class="form-group">
                           <label>Tanggal Masuk</label>
-                          <input type="date" class="form-control" placeholder="" />
+                          <input type="date" name="tanggal_masuk" class="form-control" placeholder="" />
                         </div>
                         <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
                         <div class="clearfix"></div>
