@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Biodata;
 use Illuminate\Http\Request;
 
 class BiodataController extends Controller
@@ -21,7 +22,25 @@ class BiodataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function add()
+    public function add(Request $req)
+    {
+        if (Biodata::where('no_induk', $req->no_induk)->first() === null) {
+            $req->validate([
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            return Biodata::insert([
+                'noinduk_santri' => $req->no_induk,
+                'nama_santri' => $req->nama_santri,
+                'tempat_santri' => $req->tempat_santri,
+                'tanggal_santri' => $req->tanggal_santri,
+                'nama_santri' => $req->nama_santri,
+                'nama_santri' => $req->nama_santri,
+                'nama_santri' => $req->nama_santri,
+            ]);
+        }
+    }
+
+    public function viewAdd()
     {
         //
         return view('tambah-data-biodata');
