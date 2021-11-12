@@ -9,7 +9,7 @@
         </style>
 
         <div class="content">
-          <form method="post" enctype="multipart/form-data">
+          <form method="POST" action="{{ url('/') }}/kategori">
             @csrf
             <div class="container-fluid">
               <div class="row">
@@ -44,7 +44,7 @@
                           <input type="text" name="uang_tambahan" class="form-control" placeholder="" required/>
                         </div>
 
-                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Kategori</button>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Data</button>
                         <div class="clearfix"></div>
                     </div>
                   </div>

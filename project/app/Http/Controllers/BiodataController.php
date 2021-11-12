@@ -24,26 +24,6 @@ class BiodataController extends Controller
      */
     public function add(Request $req)
     {
-        if (Biodata::where('no_induk', $req->no_induk)->first() === null) {
-            $req->validate([
-                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-            $req->image->store('img', 'public');
-            return Biodata::insert([
-                'noinduk_santri' => $req->no_induk,
-                'nama_santri' => $req->nama_santri,
-                'tempat_santri' => $req->tempat_santri,
-                'tanggal_santri' => $req->tanggal_santri,
-                'nama_santri' => $req->nama_santri,
-                'nama_santri' => $req->nama_santri,
-                'nama_santri' => $req->nama_santri,
-            ]);
-        }
-    }
-
-    public function viewAdd()
-    {
-        //
         return view('tambah-data-biodata');
     }
 
@@ -55,7 +35,33 @@ class BiodataController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+        ]);
+        
+
+        $filename = $request->image->getClientOriginalName();
+
+        $image = $request->image->storeAs('img', $filename);
+        
+        if (Biodata::where('noinduk_santri', $request->no_induk)->first() === null) {
+            return Biodata::insert([
+                'nama_santri' => $request->nama_santri,
+                'noinduk_santri' => $request->no_induk,
+                'tempat_santri' => $request->tempat_santri,
+                'tanggal_santri' => $request->tanggal_santri,
+                'wali_santri' => $request->wali_santri,
+                'alamat_santri' => $request->alamat_santri,
+                'tanggal_masuk' => $request->tanggal_masuk,
+                'foto_santri' => $image,
+                'status' => $request->status,
+            ])
+                ? redirect('/biodata')->with('sukses', 'Data Santri berhasil ditambah')
+                : redirect()->back()->with('gagal', 'Gagal menambahkan data');
+        } else {
+            return redirect()->back()->with('gagal', 'No induk telah terdaftar');
+        }
+
     }
 
     /**

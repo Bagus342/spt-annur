@@ -8,7 +8,7 @@
         </style>
 
         <div class="content">
-          <form method="post" enctype="multipart/form-data">
+          <form method="POST" action="{{ url('/') }}/biodata" enctype="multipart/form-data">
             @csrf
             <div class="container-fluid">
               <div class="row">
@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group">
                           <label>No Induk</label>
-                          <input type="number" name="no_induk" class="form-control" placeholder="" required/>
+                          <input type="text" name="no_induk" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
                           <label>Tempat Santri</label>
@@ -47,21 +47,16 @@
                           <input type="date" name="tanggal_masuk" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
-                          <label>Tanggal Masuk</label>
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                              <label for="foto" class="">Foto Santri</label>
+                              <input type="file" name="image" id="image" required>
                         </div>
                         <div class="form-group">
                           <label>Status</label><br>
-                          <input type="radio" id="status1" name="status" value="1">
+                          <input type="radio" id="status1" name="status" value="1" required>
                           <label for="status1">Aktif</label><br>
-                          <input type="radio" id="status0" name="status" value="0">
+                          <input type="radio" id="status0" name="status" value="0" required>
                           <label for="status0">Tidak Aktif</label>
-                        </div>
-                        <div class="form-group">
-                              <label for="foto" class="">Foto Santri</label>
-                              <input type="file" name="foto" id="foto" accept="image/*">
-                        </div>
-                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Data</button>
                         <div class="clearfix"></div>
                     </div>
                   </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kamar;
 use Illuminate\Http\Request;
 
 class KamarController extends Controller
@@ -35,7 +36,12 @@ class KamarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Kamar::insert([
+            'nama_kamar' => $request->nama_kamar,
+            'nama_kepala_kamar' => $ $request->kepala_kamar,
+        ])
+            ? redirect('/biodata')->with('sukses', 'Data kamar berhasil ditambah')
+            : redirect()->back()->with('gagal', 'Gagal menambahkan data');
     }
 
     /**

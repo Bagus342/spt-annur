@@ -10,10 +10,10 @@
                       <h3 class="title">Tambah User</h3>
                     </div>
                     <div class="content">
-                      <form>
+                      <form action="{{ url('/') }}/user" method="POST">
                         @csrf
                         <div class="form-group">
-                          <label>Nama</label>
+                          <label>Nama User</label>
                           <input type="text" name="nama_user" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
@@ -26,16 +26,16 @@
                         </div>
                         <div class="form-group">
                           <label for="level">Level</label>
-                          <select name="cars" id="cars" class="form-control">
-                            <option value="admin">Admin</option>
-                            <option value="pengurus">Pengurus</option>
+                          <select name="level" id="level" class="form-control">
+                            <option value="1">Admin</option>
+                            <option value="2">Pengurus</option>
                           </select>
                         </div>
                         <div class="form-group">
                             <label>Tanggal Masuk</label>
                             <input type="date" name="tgl_masuk" class="form-control" placeholder="" required/>
                           </div>
-                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah User</button>
                         <div class="clearfix"></div>
                       </form>
                     </div>

@@ -10,17 +10,17 @@
                       <h3 class="title">Tambah Kamar</h3>
                     </div>
                     <div class="content">
-                      <form>
+                      <form action="{{ url('/') }}/kamar" method="POST">
                         @csrf
                         <div class="form-group">
-                          <label>Nama Santri</label>
-                          <input type="text" name="nama_santri" class="form-control" placeholder="" required/>
+                          <label>Nama Kamar</label>
+                          <input type="text" name="nama_kamar" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
-                          <label>No Induk</label>
-                          <input type="number" name="no_induk" class="form-control" placeholder="" required/>
+                          <label>Kepala Kamar</label>
+                          <input type="number" name="kepala_kamar" class="form-control" placeholder="" required/>
                         </div>
-                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
+                        <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Data</button>
                         <div class="clearfix"></div>
                       </form>
                     </div>

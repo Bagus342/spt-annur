@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -35,7 +36,16 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Kategori::insert([
+            'nama_kategori' => $request->nama_kategori,
+            'uang_makan' => $request->uang_makan,
+            'uang_infaq' => $request->uang_infaq,
+            'uang_kesehatan' => $request->uang_kesehatan,
+            'uang_tabungan' => $request->uang_tabungan,
+            'uang_tambahan' => $request->uang_tambahan,
+        ])
+                ? redirect('/kategori')->with('sukses', 'Data kategori berhasil ditambah')
+                : redirect()->back()->with('gagal', 'Gagal menambahkan data');
     }
 
     /**

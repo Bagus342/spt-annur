@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -35,7 +37,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (User::where('username', $request->username)->first() === null) {
+            return User::insert([
+                'nama_user' => $request->nama_user,
+                'username' => $request->usernmae,
+                'password' => $request->password,
+                'level' => bcrypt($request->level),
+                'tanggal_masuk' => $request->tgl_masuk,
+            ])
+                ? redirect('/user')->with('sukses', 'Data Santri berhasil ditambah')
+                : redirect()->back()->with('gagal', 'Gagal menambahkan data');
+        }
     }
 
     /**

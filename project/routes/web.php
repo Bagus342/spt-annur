@@ -22,11 +22,11 @@ Route::get('/', function () {
 
 Route::prefix('/biodata')->group(function () {
     Route::prefix('/view')->group(function () {
-        Route::get('/add', [BiodataController::class, 'viewAdd']);
+        Route::get('/add', [BiodataController::class, 'add']);
     });
     // route view
     Route::get('/', [BiodataController::class, 'index']);
-    Route::post('/', [BiodataController::class, 'add']);
+    Route::post('/', [BiodataController::class, 'store']);
 });
 
 Route::prefix('/kamar')->group(function () {
@@ -35,6 +35,7 @@ Route::prefix('/kamar')->group(function () {
     });
     // route view
     Route::get('/', [KamarController::class, 'index']);
+    Route::post('/', [KamarController::class, 'store']);
 });
 
 Route::prefix('/kategori')->group(function () {
@@ -43,6 +44,7 @@ Route::prefix('/kategori')->group(function () {
     });
     // route view
     Route::get('/', [KategoriController::class, 'index']);
+    Route::post('/', [KategoriController::class, 'store']);
 });
 
 Route::get('/gabungan', function () {
