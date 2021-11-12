@@ -26,7 +26,7 @@
 
     <!-- Custom CSS Dropdown -->
     <link rel="stylesheet" href="{{asset('css/dropdown.css')}}" />
-
+    @yield('css-list')
     <style>
       .modal-backdrop {
         /* bug fix - no overlay */
@@ -36,17 +36,17 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="sidebar" data-color="purple" data-image="{{asset('img/sidebar-5.jpg')}}">
+      <div class="sidebar" data-color="purple">
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
         <div class="sidebar-wrapper">
           <div class="logo">
-            <a href="index.html" class="simple-text"> Company Name </a>
+            <a href="#" class="simple-text"> Company Name </a>
           </div>
 
           <ul class="nav">
             <li class="active">
-              <a href="index.html">
+              <a href="#">
                 <i class="pe-7s-graph"></i>
                 <p>Dashboard</p>
               </a>
@@ -59,7 +59,7 @@
             </li>
             <div class="dropdown-container">
               <li class="">
-                <a href="pemilik.html" class="dropdown-text">
+                <a href="/biodata" class="dropdown-text">
                   <i class="pe-7s-less"></i>
                   <p class="">Biodata</p>
                 </a>
@@ -159,7 +159,7 @@
           </div>
         </nav>
 
-
+        @yield('content')
         <footer class="footer">
           <div class="container-fluid">
             <nav class="pull-left">
@@ -213,7 +213,6 @@
   <script>
     /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
     var dropdown = document.getElementsByClassName('dropdown-btn');
-    var i;
 
     for (i = 0; i < dropdown.length; i++) {
       dropdown[i].addEventListener('click', function () {
