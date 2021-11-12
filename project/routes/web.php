@@ -20,8 +20,9 @@ Route::get('/', function () {
 
 Route::prefix('/biodata')->group(function () {
     Route::prefix('/view')->group(function () {
-        Route::get('/add', [BiodataController::class, 'add']);
+        Route::get('/add', [BiodataController::class, 'viewAdd']);
     });
     // route view
     Route::get('/', [BiodataController::class, 'index']);
+    Route::post('/', [BiodataController::class, 'add']);
 });

@@ -2,6 +2,8 @@
 
 @section('content')
         <div class="content">
+          <form method="post" enctype="multipart/form-data">
+            @csrf
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-8">
@@ -10,8 +12,6 @@
                       <h3 class="title">Tambah Santri</h3>
                     </div>
                     <div class="content">
-                      <form>
-                        @csrf
                         <div class="form-group">
                           <label>Nama Santri</label>
                           <input type="text" name="nama_santri" class="form-control" placeholder="" required/>
@@ -25,7 +25,7 @@
                           <input type="text" name="tempat_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
-                          <label>Tanggal Santri</label>
+                          <label>Tanggal Lahir</label>
                           <input type="date" name="tanggal_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
@@ -37,19 +37,18 @@
                           <input type="text" name="alamat_santri" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
+                          <label>Tanggal Masuk</label>
+                          <input type="date" name="tanggal_masuk" class="form-control" placeholder="" required/>
+                        </div>
+                        <div class="form-group">
                           <label>Status</label><br>
                           <input type="radio" id="status1" name="status" value="1">
                           <label for="status1">Aktif</label><br>
                           <input type="radio" id="status0" name="status" value="0">
                           <label for="status0">Tidak Aktif</label>
                         </div>
-                        <div class="form-group">
-                          <label>Tanggal Masuk</label>
-                          <input type="date" name="tanggal_masuk" class="form-control" placeholder="" required/>
-                        </div>
                         <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
                         <div class="clearfix"></div>
-                      </form>
                     </div>
                   </div>
                 </div>
@@ -64,7 +63,7 @@
                           <img class="avatar border-gray" src="{{asset('img/default.png')}}" alt="..." />
   
                           <div class="title">
-                            <button class="btn btn-block">Tambah foto</button>
+                            <input class="btn btn-block" type="file" name="foto_santri" id="image">
                           </div>
                         </a>
                       </div>
@@ -74,6 +73,6 @@
                 </div>
               </div>
             </div>
-
+          </form>
         </div>
   @endsection
