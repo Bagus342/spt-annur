@@ -1,6 +1,11 @@
 @extends('templates.template')
 
 @section('content')
+          <style>
+            .dataTables_filter {
+              float: left !important;
+            }
+          </style>
         <div class="content">
           <div class="container-fluid">
             <div class="row">
@@ -17,7 +22,7 @@
                       </div>
                       <div class="col-md-2">
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-block btn-default" data-toggle="modal" data-target="#exampleModalLong">Tambah</button>
+                        <a href="{{ url('/') }}/biodata/view/add" class="btn btn-block btn-default">Tambah</a>
                       </div>
                     </div>
                   </div>
@@ -41,7 +46,7 @@
                           <td>001</td>
                           <td>Bagus</td>
                           <td>Malang</td>
-                          <td>contoh</td>
+                          <td>12/12/2012</td>
                           <td>contoh</td>
                           <td>Bagus</td>
                           <td>Malang</td>

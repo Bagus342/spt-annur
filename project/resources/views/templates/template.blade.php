@@ -39,7 +39,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="sidebar" data-color="purple">
+      <div class="sidebar" data-color="purple" data-image="{{asset('img/sidebar.jpg')}}">
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
         <div class="sidebar-wrapper">
@@ -48,7 +48,7 @@
           </div>
 
           <ul class="nav">
-            <li class="active">
+            <li class="">
               <a href="#">
                 <i class="pe-7s-graph"></i>
                 <p>Dashboard</p>
@@ -62,7 +62,7 @@
             </li>
             <div class="dropdown-container">
               <li class="">
-                <a href="biodata" class="dropdown-text">
+                <a href="{{ url('/') }}/biodata" class="dropdown-text">
                   <i class="pe-7s-less"></i>
                   <p class="">Biodata</p>
                 </a>
@@ -133,27 +133,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#">Table List</a>
             </div>
             <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav navbar-left">
-                <li>
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="fa fa-dashboard"></i>
-                    <p class="hidden-lg hidden-md">Dashboard</p>
-                  </a>
-                </li>
-              </ul>
 
               <ul class="nav navbar-nav navbar-right">
                 <li>
                   <a href="">
-                    <p>Account</p>
+                    <p>Akun</p>
                   </a>
                 </li>
                 <li>
                   <a href="#">
-                    <p>Log out</p>
+                    <p>Keluar</p>
                   </a>
                 </li>
                 <li class="separator hidden-lg hidden-md"></li>
@@ -236,6 +227,7 @@
   <script>
     $(document).ready( function () {
       $('#table_id').DataTable({
+        "lengthChange": false,
               "language" :  {
                                   "decimal":            "",
                                   "emptyTable":     "Tidak ada data saat ini",
@@ -247,7 +239,7 @@
                                   "lengthMenu":      "Menampilkan _MENU_ data",
                                   "loadingRecords":   "Memuat...",
                                   "processing":          "Sedang diproses...",
-                                  "search":             "Pencarian:",
+                                  "search":             "Pencarian",
                                   "zeroRecords":     "Data tidak ditemukan",
                                   "paginate": {
                                       "first":             "Pertama",
