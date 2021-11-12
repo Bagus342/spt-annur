@@ -13,82 +13,160 @@
                   <div class="header">
                     <div class="row">
                       <div class="col-md-10">
-                        <h4 class="title">Striped Table with Hover</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">Biodata Santri</h4>
                       </div>
                       <div class="col-md-2">
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-block btn-default" data-toggle="modal" data-target="#exampleModalLong">Tambah</button>
-
-                        <!-- Modal -->
-                        <div class="modal fade bd-example-modal-lg" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                          <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                              </div>
-                              <div class="modal-body">...</div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                   </div>
-                  <div class="content table-responsive table-full-width">
-                    <table class="table table-hover table-striped">
+                  <div class="content table-responsive table-full-width" style="padding: 25px 30px 25px 30px">
+                    <table class="table table-hover table-striped" id="table_id">
                       <thead>
                         <th>ID</th>
-                        <th>Name</th>
-                        <th>Salary</th>
-                        <th>Country</th>
-                        <th>City</th>
+                        <th>No Induk</th>
+                        <th>Nama</th>
+                        <th>Tempat Santri</th>
+                        <th>Tanggal Santri</th>
+                        <th>Foto</th>
+                        <th>Wali</th>
+                        <th>Alamat</th>
+                        <th>Status</th>
+                        <th>Tanggal Masuk</th>
                       </thead>
                       <tbody>
                         <tr>
                           <td>1</td>
-                          <td>Dakota Rice</td>
-                          <td>$36,738</td>
-                          <td>Niger</td>
-                          <td>Oud-Turnhout</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
                         </tr>
                         <tr>
                           <td>2</td>
-                          <td>Minerva Hooper</td>
-                          <td>$23,789</td>
-                          <td>Curaçao</td>
-                          <td>Sinaai-Waas</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
                         </tr>
                         <tr>
                           <td>3</td>
-                          <td>Sage Rodriguez</td>
-                          <td>$56,142</td>
-                          <td>Netherlands</td>
-                          <td>Baileux</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
                         </tr>
                         <tr>
                           <td>4</td>
-                          <td>Philip Chaney</td>
-                          <td>$38,735</td>
-                          <td>Korea, South</td>
-                          <td>Overland Park</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
                         </tr>
                         <tr>
                           <td>5</td>
-                          <td>Doris Greene</td>
-                          <td>$63,542</td>
-                          <td>Malawi</td>
-                          <td>Feldkirchen in Kärnten</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
                         </tr>
                         <tr>
                           <td>6</td>
-                          <td>Mason Porter</td>
-                          <td>$78,615</td>
-                          <td>Chile</td>
-                          <td>Gloucester</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
+                        </tr>
+                        <tr>
+                          <td>7</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
+                        </tr>
+                        <tr>
+                          <td>8</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
+                        </tr>
+                        <tr>
+                          <td>9</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
+                        </tr>
+                        <tr>
+                          <td>10</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
+                        </tr>
+                        <tr>
+                          <td>11</td>
+                          <td>001</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>contoh</td>
+                          <td>contoh</td>
+                          <td>Bagus</td>
+                          <td>Malang</td>
+                          <td>1</td>
+                          <td>contoh</td>
                         </tr>
                       </tbody>
                     </table>

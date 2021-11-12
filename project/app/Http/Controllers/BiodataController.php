@@ -21,9 +21,10 @@ class BiodataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function add()
     {
         //
+        return view('tambah-data-biodata');
     }
 
     /**

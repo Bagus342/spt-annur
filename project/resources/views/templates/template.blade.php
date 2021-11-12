@@ -24,6 +24,9 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,700,300" rel="stylesheet" type="text/css" />
     <link href="{{asset('css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
 
+     <!--     Datatables    -->
+     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+
     <!-- Custom CSS Dropdown -->
     <link rel="stylesheet" href="{{asset('css/dropdown.css')}}" />
     @yield('css-list')
@@ -210,6 +213,9 @@
   <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
   <script src="{{asset('js/demo.js')}}"></script>
 
+  <!-- Datatables -->
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
   <script>
     /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
     var dropdown = document.getElementsByClassName('dropdown-btn');
@@ -225,5 +231,36 @@
         }
       });
     }
+  </script>
+
+  <script>
+    $(document).ready( function () {
+      $('#table_id').DataTable({
+              "language" :  {
+                                  "decimal":            "",
+                                  "emptyTable":     "Tidak ada data saat ini",
+                                  "info":                 "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                                  "infoEmpty":       "Menampilkan 0 sampai 0 dari 0 data",
+                                  "infoFiltered":    "(Difilter dari _MAX_ total data)",
+                                  "infoPostFix":     "",
+                                  "thousands":       ",",
+                                  "lengthMenu":      "Menampilkan _MENU_ data",
+                                  "loadingRecords":   "Memuat...",
+                                  "processing":          "Sedang diproses...",
+                                  "search":             "Pencarian:",
+                                  "zeroRecords":     "Data tidak ditemukan",
+                                  "paginate": {
+                                      "first":             "Pertama",
+                                      "last":               "Terakhir",
+                                      "next":              "Lanjut",
+                                      "previous":        "Kembali"
+                                  },
+                                  "aria": {
+                                      "sortAscending":  ": activate to sort column ascending",
+                                      "sortDescending": ": activate to sort column descending"
+                                  }
+              }
+      });
+    } );
   </script>
 </html>
