@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('template');
+    return view('templates.template');
 });
 
 Route::prefix('/biodata')->group(function () {
