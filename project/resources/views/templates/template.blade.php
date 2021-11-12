@@ -59,7 +59,7 @@
             </li>
             <div class="dropdown-container">
               <li class="">
-                <a href="/biodata" class="dropdown-text">
+                <a href="Annur/biodata" class="dropdown-text">
                   <i class="pe-7s-less"></i>
                   <p class="">Biodata</p>
                 </a>
