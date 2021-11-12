@@ -28,6 +28,7 @@ class BiodataController extends Controller
             $req->validate([
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
+            $req->image->store('img', 'public');
             return Biodata::insert([
                 'noinduk_santri' => $req->no_induk,
                 'nama_santri' => $req->nama_santri,

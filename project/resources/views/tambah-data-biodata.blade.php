@@ -47,6 +47,10 @@
                           <input type="date" name="tanggal_masuk" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
+                          <label>Tanggal Masuk</label>
+                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                        <div class="form-group">
                           <label>Status</label><br>
                           <input type="radio" id="status1" name="status" value="1">
                           <label for="status1">Aktif</label><br>
