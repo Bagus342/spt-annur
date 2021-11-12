@@ -18,10 +18,10 @@
                   <div class="header">
                     <div class="row">
                       <div class="col-md-10">
-                        <h4 class="title">Data Kategori</h4>
+                        <h4 class="title">Data Gabungan</h4>
                       </div>
                       <div class="col-md-2">
-                        <a href="{{ url('/') }}/kategori/view/add" class="btn btn-block btn-default">Tambah</a>
+                        <a href="{{ url('/') }}/kamar/view/add" class="btn btn-block btn-default">Tambah</a>
                       </div>
                     </div>
                   </div>
@@ -29,40 +29,28 @@
                     <table class="table table-hover table-striped" id="table_id">
                       <thead>
                         <th>ID</th>
-                        <th>Nama Kategori</th>
-                        <th>Uang Makan</th>
-                        <th>Uang Infaq</th>
-                        <th>Uang Kesehatan</th>
-                        <th>Uang Tabungan</th>
-                        <th>Uang Tambahan</th>
+                        <th>No Induk</th>
+                        <th>Id Kategori</th>
+                        <th>Id Kamar</th>
                       </thead>
                       <tbody>
                           <tr>
                               <td>1</td>
-                              <td>Dio</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
-                          </tr>
-                          <tr>
                               <td>2</td>
-                              <td>Bagus</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
+                              <td>3</td>
+                              <td>4</td>
                           </tr>
                           <tr>
-                              <td>3</td>
-                              <td>Rendi</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
+                              <td>5</td>
+                              <td>6</td>
+                              <td>7</td>
+                              <td>8</td>
+                          </tr>
+                          <tr>
+                              <td>9</td>
+                              <td>0</td>
+                              <td>10</td>
+                              <td>11</td>
                           </tr>
                       </tbody>
                     </table>

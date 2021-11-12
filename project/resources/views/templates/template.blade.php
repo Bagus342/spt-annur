@@ -74,19 +74,19 @@
                 </a>
               </li>
               <li class="">
-                <a href="#" class="dropdown-text">
+                <a href="{{ url('/') }}/kategori" class="dropdown-text">
                   <i class="pe-7s-less"></i>
                   <p class="">Kategori</p>
                 </a>
               </li>
               <li class="">
-                <a href="#" class="dropdown-text">
+                <a href="{{ url('/') }}/gabungan" class="dropdown-text">
                   <i class="pe-7s-less"></i>
                   <p class="">Gabungan</p>
                 </a>
               </li>
               <li class="">
-                <a href="#" class="dropdown-text">
+                <a href="{{ url('/') }}/user" class="dropdown-text">
                   <i class="pe-7s-less"></i>
                   <p class="">User</p>
                 </a>

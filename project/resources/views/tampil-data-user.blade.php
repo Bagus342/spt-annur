@@ -18,10 +18,10 @@
                   <div class="header">
                     <div class="row">
                       <div class="col-md-10">
-                        <h4 class="title">Data Kategori</h4>
+                        <h4 class="title">Data User</h4>
                       </div>
                       <div class="col-md-2">
-                        <a href="{{ url('/') }}/kategori/view/add" class="btn btn-block btn-default">Tambah</a>
+                        <a href="{{ url('/') }}/user/view/add" class="btn btn-block btn-default">Tambah</a>
                       </div>
                     </div>
                   </div>
@@ -29,40 +29,32 @@
                     <table class="table table-hover table-striped" id="table_id">
                       <thead>
                         <th>ID</th>
-                        <th>Nama Kategori</th>
-                        <th>Uang Makan</th>
-                        <th>Uang Infaq</th>
-                        <th>Uang Kesehatan</th>
-                        <th>Uang Tabungan</th>
-                        <th>Uang Tambahan</th>
+                        <th>Nama User</th>
+                        <th>Username</th>
+                        <th>Level</th>
+                        <th>Tanggal Masuk</th>
                       </thead>
                       <tbody>
                           <tr>
                               <td>1</td>
                               <td>Dio</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
-                              <td>1.000</td>
+                              <td>Dio</td>
+                              <td>babu</td>
+                              <td>1-1-1999</td>
                           </tr>
                           <tr>
                               <td>2</td>
                               <td>Bagus</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
-                              <td>2.000</td>
+                              <td>Bagus</td>
+                              <td>admin</td>
+                              <td>1-1-1999</td>
                           </tr>
                           <tr>
-                              <td>3</td>
+                              <td>1</td>
                               <td>Rendi</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
-                              <td>3.000</td>
+                              <td>Rendi</td>
+                              <td>admin</td>
+                              <td>1-1-1999</td>
                           </tr>
                       </tbody>
                     </table>

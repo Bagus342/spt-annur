@@ -13,7 +13,7 @@
             @csrf
             <div class="container-fluid">
               <div class="row">
-                <div class="col-md-8">
+                <div class="col">
                   <div class="card">
                     <div class="header">
                       <h3 class="title">Tambah Santri</h3>
@@ -57,24 +57,6 @@
                         <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Santri</button>
                         <div class="clearfix"></div>
                     </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="card card-user">
-                    <div class="image">
-                      <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..." />
-                    </div>
-                    <div class="content">
-                      <div class="author">
-                        <a href="#">
-                          <img class="avatar border-gray" src="{{asset('img/default.png')}}" alt="..." />
-  
-                          <div class="title">
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                    <hr />
                   </div>
                 </div>
               </div>

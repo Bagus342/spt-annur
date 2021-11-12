@@ -3,6 +3,8 @@
 use App\Http\Controllers\BiodataController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KamarController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,4 +35,24 @@ Route::prefix('/kamar')->group(function () {
     });
     // route view
     Route::get('/', [KamarController::class, 'index']);
+});
+
+Route::prefix('/kategori')->group(function () {
+    Route::prefix('/view')->group(function () {
+        Route::get('/add', [KategoriController::class, 'add']);
+    });
+    // route view
+    Route::get('/', [KategoriController::class, 'index']);
+});
+
+Route::get('/gabungan', function () {
+    return view('tampil-data-gabungan');
+});
+
+Route::prefix('/user')->group(function () {
+    Route::prefix('/view')->group(function () {
+        Route::get('/add', [UserController::class, 'add']);
+    });
+    // route view
+    Route::get('/', [UserController::class, 'index']);
 });
