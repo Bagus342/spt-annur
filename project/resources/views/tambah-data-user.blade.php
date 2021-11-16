@@ -22,11 +22,12 @@
                         </div>
                         <div class="form-group">
                           <label>Password</label>
-                          <input type="password" name="pasword" class="form-control" placeholder="" required/>
+                          <input type="password" name="password" class="form-control" placeholder="" required/>
                         </div>
                         <div class="form-group">
                           <label for="level">Level</label>
                           <select name="level" id="level" class="form-control">
+                            <option value="" default>Pilih...</option>
                             <option value="1">Admin</option>
                             <option value="2">Pengurus</option>
                           </select>

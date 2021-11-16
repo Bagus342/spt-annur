@@ -63,4 +63,5 @@ Route::prefix('/user')->group(function () {
     });
     // route view
     Route::get('/', [UserController::class, 'index']);
+    Route::post('/', [UserController::class, 'store']);
 });

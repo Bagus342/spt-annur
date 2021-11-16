@@ -15,7 +15,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('tampil-data-user');
+        return view('tampil-data-user', [
+            'data' => User::get(),
+            'title' => 'Data User'
+        ]);
     }
 
     /**
@@ -40,13 +43,15 @@ class UserController extends Controller
         if (User::where('username', $request->username)->first() === null) {
             return User::insert([
                 'nama_user' => $request->nama_user,
-                'username' => $request->usernmae,
-                'password' => $request->password,
-                'level' => bcrypt($request->level),
+                'username' => $request->username,
+                'password' => bcrypt($request->password),
+                'level' => $request->level,
                 'tanggal_masuk' => $request->tgl_masuk,
             ])
                 ? redirect('/user')->with('sukses', 'Data Santri berhasil ditambah')
                 : redirect()->back()->with('gagal', 'Gagal menambahkan data');
+        } else {
+            return redirect()->back()->with('gagal', 'Username telah terdaftar');
         }
     }
 

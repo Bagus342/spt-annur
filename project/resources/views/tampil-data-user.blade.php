@@ -28,34 +28,22 @@
                   <div class="content table-responsive table-full-width" style="padding: 25px 30px 25px 30px">
                     <table class="table table-hover table-striped" id="table_id">
                       <thead>
-                        <th>ID</th>
+                        <th>No</th>
                         <th>Nama User</th>
                         <th>Username</th>
                         <th>Level</th>
                         <th>Tanggal Masuk</th>
                       </thead>
-                      <tbody>
+                      <tbody id="list-data">
+                        @foreach($data as $item)
                           <tr>
-                              <td>1</td>
-                              <td>Dio</td>
-                              <td>Dio</td>
-                              <td>babu</td>
-                              <td>1-1-1999</td>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->nama_user }}</td>
+                            <td>{{ $item->username }}</td>
+                            <td>{{ $item->level === 1 ? 'Admin' : 'Pengurus' }}</td>
+                            <td>{{ $item->tanggal_masuk }}</td>
                           </tr>
-                          <tr>
-                              <td>2</td>
-                              <td>Bagus</td>
-                              <td>Bagus</td>
-                              <td>admin</td>
-                              <td>1-1-1999</td>
-                          </tr>
-                          <tr>
-                              <td>1</td>
-                              <td>Rendi</td>
-                              <td>Rendi</td>
-                              <td>admin</td>
-                              <td>1-1-1999</td>
-                          </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>
