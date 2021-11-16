@@ -10,7 +10,7 @@
                       <h3 class="title">Tambah Kamar</h3>
                     </div>
                     <div class="content">
-                      <form action="{{ url('/') }}/kamar" method="POST">
+                      <form method="POST" action="{{ url('/') }}/kamar" >
                         @csrf
                         <div class="form-group">
                           <label>Nama Kamar</label>
@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                           <label>Kepala Kamar</label>
-                          <input type="number" name="kepala_kamar" class="form-control" placeholder="" required/>
+                          <input type="text" name="kepala_kamar" class="form-control" placeholder="" required/>
                         </div>
                         <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Data</button>
                         <div class="clearfix"></div>

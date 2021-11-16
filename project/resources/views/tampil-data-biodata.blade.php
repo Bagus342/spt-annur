@@ -28,150 +28,30 @@
                   <div class="content table-responsive table-full-width" style="padding: 25px 30px 25px 30px">
                     <table class="table table-hover table-striped" id="table_id">
                       <thead>
-                        <th>ID</th>
+                        <th>No</th>
                         <th>No Induk</th>
                         <th>Nama</th>
                         <th>Tempat Santri</th>
                         <th>Tanggal Santri</th>
-                        <th>Foto</th>
                         <th>Wali</th>
                         <th>Alamat</th>
                         <th>Status</th>
                         <th>Tanggal Masuk</th>
                       </thead>
-                      <tbody>
+                      <tbody id="list-data">
+                        @foreach ($data as $item)
                         <tr>
-                          <td>1</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>12/12/2012</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
+                          <td>{{ $loop->iteration }}</td>
+                          <td>{{ $item->noinduk_santri }}</td>
+                          <td>{{ $item->nama_santri  }}</td>
+                          <td>{{ $item->tempat_santri }}</td>
+                          <td>{{ $item->tanggal_santri }}</td>
+                          <td>{{ $item->wali_santri }}</td>
+                          <td>{{ $item->alamat_santri }}</td>
+                          <td>{{ $item->status }}</td>
+                          <td>{{ $item->tanggal_masuk }}</td>
                         </tr>
-                        <tr>
-                          <td>2</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>3</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>4</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>5</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>6</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>7</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>8</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>9</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>10</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
-                        <tr>
-                          <td>11</td>
-                          <td>001</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>contoh</td>
-                          <td>contoh</td>
-                          <td>Bagus</td>
-                          <td>Malang</td>
-                          <td>1</td>
-                          <td>contoh</td>
-                        </tr>
+                        @endforeach
                       </tbody>
                     </table>
                   </div>

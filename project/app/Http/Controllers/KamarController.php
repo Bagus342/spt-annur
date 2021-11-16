@@ -14,7 +14,10 @@ class KamarController extends Controller
      */
     public function index()
     {
-        return view('tampil-data-kamar');
+        return view('tampil-data-kamar', [
+            'data' => Kamar::get(),
+            'title' => 'Data Kamar Santri'
+        ]);
     }
 
     /**
@@ -38,9 +41,9 @@ class KamarController extends Controller
     {
         return Kamar::insert([
             'nama_kamar' => $request->nama_kamar,
-            'nama_kepala_kamar' => $ $request->kepala_kamar,
+            'nama_kepala_kamar' => $request->kepala_kamar,
         ])
-            ? redirect('/biodata')->with('sukses', 'Data kamar berhasil ditambah')
+            ? redirect('/kamar')->with('sukses', 'Data kamar berhasil ditambah')
             : redirect()->back()->with('gagal', 'Gagal menambahkan data');
     }
 

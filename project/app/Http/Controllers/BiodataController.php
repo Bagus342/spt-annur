@@ -14,7 +14,10 @@ class BiodataController extends Controller
      */
     public function index()
     {
-        return view('tampil-data-biodata');
+        return view('tampil-data-biodata', [
+            'data' => Biodata::get(),
+            'title' => 'Biodata Santri'
+        ]);
     }
 
     /**

@@ -14,7 +14,10 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        return view('tampil-data-kategori');
+        return view('tampil-data-kategori', [
+            'data' => Kategori::get(),
+            'title' => 'Data Kategori',
+        ]);
     }
 
     /**
