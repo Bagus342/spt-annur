@@ -11,27 +11,33 @@
                             <h3 class="title">Tambah Gabungan</h3>
                         </div>
                         <div class="content">
-                            <form action="{{ url('/') }}/user" method="POST">
+                            <form method="POST" action="{{ url('/') }}/gabungan">
+                                @csrf
                                 <div class="form-group">
-                                    <label>No Induk</label>
-                                    <input type="text" name="nama_induk" class="form-control" placeholder="" required />
-                                </div>
-                                <div class="form-group">
-                                    <label>Nama Kategori</label>
-                                    <select name="id_kategori" id="kategori" class="form-control">
-                                        <option value="Rendi">Rendi</option>
-                                        <option value="Bagus">Bagus</option>
-                                        <option value="Faisal">Faisal</option>
-                                        <option value="Dio">Dio</option>
+                                    <label for="no_induk">Nomor Induk</label>
+                                    <select name="no_induk" id="no_induk" class="form-control">
+                                        <option value="" >Pilih..</option>
+                                        @foreach($biodata as $item)
+                                            <option value="{{ $item->noinduk_santri }}" >{{ $item->noinduk_santri }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Nama Kamar</label>
-                                    <select name="id_kamar" id="kamar" class="form-control">
-                                        <option value="1">A001</option>
-                                        <option value="2">A002</option>
-                                        <option value="3">A003</option>
-                                        <option value="4">A004</option>
+                                    <label for="kategori">Nama Kategori</label>
+                                    <select name="nama_kategori" id="kategori" class="form-control">
+                                        <option value="" >Pilih..</option>
+                                        @foreach($kategori as $item)
+                                            <option value="{{ $item->nama_kategori }}" >{{ $item->nama_kategori }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group"> 
+                                    <label for="kamar">Nama Kamar</label>
+                                    <select name="nama_kamar" id="kamar" class="form-control">
+                                        <option value="">Pilih...</option>
+                                        @foreach($kamar as $item)
+                                            <option value="{{ $item->nama_kamar }}">{{ $item->nama_kamar }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <button type="submit" class="btn btn-info btn-fill pull-right">Tambah Gabungan</button>
