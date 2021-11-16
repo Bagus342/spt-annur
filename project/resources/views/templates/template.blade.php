@@ -142,19 +142,6 @@
                     </div>
                     <div class="collapse navbar-collapse">
 
-                        <ul class="nav navbar-nav navbar-right">
-                            <li>
-                                <a href="">
-                                    <p>Akun</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <p>Keluar</p>
-                                </a>
-                            </li>
-                            <li class="separator hidden-lg hidden-md"></li>
-                        </ul>
                     </div>
                 </div>
             </nav>
