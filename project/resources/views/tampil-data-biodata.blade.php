@@ -10,8 +10,17 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
+<<<<<<< HEAD
                 <div class="col-md-10"></div>
                 <div class="col-md-2"></div>
+=======
+              <div class="content-header">
+                <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
+                <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
+            </div>
+              <div class="col-md-10"></div>
+              <div class="col-md-2"></div>
+>>>>>>> 5074466 (try biodata)
             </div>
             <div class="row">
                 <div class="col-md-12">

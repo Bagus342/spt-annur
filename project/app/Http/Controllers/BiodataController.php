@@ -45,7 +45,7 @@ class BiodataController extends Controller
 
         $filename = $request->image->getClientOriginalName();
 
-        $image = $request->image->storeAs('img', $filename);
+        $image = $request->image->storeAs('img', $request->no_induk.'-'.$filename);
         
         if (Biodata::where('noinduk_santri', $request->no_induk)->first() === null) {
             return Biodata::insert([

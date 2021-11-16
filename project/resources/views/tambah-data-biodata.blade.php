@@ -18,6 +18,13 @@
                       <h3 class="title">Tambah Santri</h3>
                     </div>
                     <div class="content">
+                      @if (session('gagal') !== null)
+                          <div class="form-group">
+                              <div class="alert alert-danger" role="alert">
+                                  {{ session('gagal') }}
+                              </div>
+                          </div>
+                      @endif
                         <div class="form-group">
                           <label>Nama Santri</label>
                           <input type="text" name="nama_santri" class="form-control" placeholder="" required/>

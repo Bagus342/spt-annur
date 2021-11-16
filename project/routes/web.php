@@ -6,6 +6,7 @@ use App\Http\Controllers\GabunganController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,8 +18,11 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('templates.template');
+Route::get('/', [AuthController::class, 'index']);
+
+Route::prefix('/auth')->group(function () {
+    Route::post('/', [AuthController::class, 'Login']);
+    Route::get('/logout', [AuthController::class, 'Logout']);
 });
 
 Route::prefix('/biodata')->group(function () {
