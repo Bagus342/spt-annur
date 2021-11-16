@@ -564,8 +564,8 @@ input:focus {
   background-size: 150% 150%;
 }
 
-.sidebar[data-color='annur']:after {
-  background: green;
+.sidebar[data-color='hijau']:after {
+  background: #066437;
 }
 
 .main-panel {
