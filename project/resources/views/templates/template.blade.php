@@ -39,7 +39,7 @@
   </head>
   <body>
     <div class="wrapper">
-      <div class="sidebar" data-color="purple" data-image="{{asset('img/sidebar.jpg')}}">
+      <div class="sidebar" data-color="annur" data-image="{{asset('img/sidebar.jpg')}}">
         <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
 
         <div class="sidebar-wrapper">
