@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\BiodataController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\GabunganController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
@@ -47,8 +48,13 @@ Route::prefix('/kategori')->group(function () {
     Route::post('/', [KategoriController::class, 'store']);
 });
 
-Route::get('/gabungan', function () {
-    return view('tampil-data-gabungan');
+Route::prefix('/gabungan')->group(function () {
+    Route::prefix('/view')->group(function () {
+        Route::get('/add', [GabunganController::class, 'add']);
+    });
+    // route view
+    Route::get('/', [GabunganController::class, 'index']);
+    Route::post('/', [GabunganController::class, 'store']);
 });
 
 Route::prefix('/user')->group(function () {

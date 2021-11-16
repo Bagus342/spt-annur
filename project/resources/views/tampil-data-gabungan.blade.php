@@ -21,7 +21,7 @@
                         <h4 class="title">Data Gabungan</h4>
                       </div>
                       <div class="col-md-2">
-                        <a href="{{ url('/') }}/kamar/view/add" class="btn btn-block btn-default">Tambah</a>
+                        <a href="{{ url('/') }}/gabungan/view/add" class="btn btn-block btn-default">Tambah</a>
                       </div>
                     </div>
                   </div>
