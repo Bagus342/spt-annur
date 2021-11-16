@@ -12,6 +12,13 @@
                     <div class="content">
                       <form method="POST" action="{{ url('/') }}/kamar" >
                         @csrf
+                        @if (session('gagal') !== null)
+                        <div class="form-group">
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('gagal') }}
+                            </div>
+                        </div>
+                    @endif
                         <div class="form-group">
                           <label>Nama Kamar</label>
                           <input type="text" name="nama_kamar" class="form-control" placeholder="" required/>

@@ -43,6 +43,8 @@
 </head>
 
 <body>
+    <input type="hidden" id="url" value="{{ url('/') }}">
+    <input type="hidden" id="token" value="{{ csrf_token() }}">
     <div class="wrapper">
         <div class="sidebar" data-color="hijau" data-image="{{ asset('img/sidebar.jpg') }}">
             <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
@@ -132,18 +134,24 @@
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target="#navigation-example-2">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
+                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                      </button>
                     </div>
                     <div class="collapse navbar-collapse">
-
+                      <ul class="nav navbar-nav navbar-right">
+                        <li>
+                          <a href="{{ url('/') }}/auth/logout">
+                            <p>Log out</p>
+                          </a>
+                        </li>
+                        <li class="separator hidden-lg hidden-md"></li>
+                      </ul>
                     </div>
-                </div>
+                  </div>
             </nav>
 
             @yield('content')
@@ -179,23 +187,23 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="{{ asset('js/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/public/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('js/public/bootstrap.min.js') }}" type="text/javascript"></script>
 
 <!--  Charts Plugin -->
-<script src="{{ asset('js/chartist.min.js') }}"></script>
+<script src="{{ asset('js/public/chartist.min.js') }}"></script>
 
 <!--  Notifications Plugin    -->
-<script src="{{ asset('js/bootstrap-notify.js') }}"></script>
+<script src="{{ asset('js/public/bootstrap-notify.js') }}"></script>
 
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-<script src="{{ asset('js/light-bootstrap-dashboard.js?v=1.4.0') }}"></script>
+<script src="{{ asset('js/public/light-bootstrap-dashboard.js?v=1.4.0') }}"></script>
 
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="{{ asset('js/demo.js') }}"></script>
+<script src="{{ asset('js/public/demo.js') }}"></script>
 
 <!-- Datatables -->
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>

@@ -9,6 +9,10 @@
         <div class="content">
           <div class="container-fluid">
             <div class="row">
+              <div class="content-header">
+                <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
+                <div id="flash-data-error" data-flash-error="{{ session('gagal') }}"></div>
+            </div>
               <div class="col-md-10"></div>
               <div class="col-md-2"></div>
             </div>
@@ -52,4 +56,7 @@
             </div>
           </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{{ asset('js/user.js') }}"></script>
   @endsection

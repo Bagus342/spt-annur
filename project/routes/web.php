@@ -7,6 +7,7 @@ use App\Http\Controllers\KamarController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\JsonController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,4 +69,8 @@ Route::prefix('/user')->group(function () {
     // route view
     Route::get('/', [UserController::class, 'index']);
     Route::post('/', [UserController::class, 'store']);
+});
+
+Route::prefix('/detail')->group(function () {
+    Route::get('/biodata', [JsonController::class, 'getBiodata']);
 });

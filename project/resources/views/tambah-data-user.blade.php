@@ -12,6 +12,13 @@
                     <div class="content">
                       <form action="{{ url('/') }}/user" method="POST">
                         @csrf
+                        @if (session('gagal') !== null)
+                        <div class="form-group">
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('gagal') }}
+                            </div>
+                        </div>
+                    @endif
                         <div class="form-group">
                           <label>Nama User</label>
                           <input type="text" name="nama_user" class="form-control" placeholder="" required/>

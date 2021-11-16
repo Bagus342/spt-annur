@@ -10,17 +10,12 @@
     <div class="content">
         <div class="container-fluid">
             <div class="row">
-<<<<<<< HEAD
-                <div class="col-md-10"></div>
-                <div class="col-md-2"></div>
-=======
               <div class="content-header">
                 <div id="flash-data-success" data-flash-success="{{ session('sukses') }}"></div>
-                <div id="flash-data-error" data-flash-error="{{ session('error') }}"></div>
+                <div id="flash-data-error" data-flash-error="{{ session('gagal') }}"></div>
             </div>
               <div class="col-md-10"></div>
               <div class="col-md-2"></div>
->>>>>>> 5074466 (try biodata)
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -64,75 +59,77 @@
                                             <td>{{ $item->tanggal_masuk }}</td>
                                             <td>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                    data-target="#exampleModalLong">
+                                                <button type="button" class="btn btn-primary detail" data-toggle="modal"
+                                                    data-target="#exampleModalLong" data-id="{{ $item->id_biodata }}">
                                                     Detail
                                                 </button>
-
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="exampleModalLong" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalLongTitle"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle">Detail
-                                                                </h5>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="card card-user">
-                                                                    <div class="content">
-                                                                        <div class="author">
-                                                                            <a href="#">
-                                                                                <img class="avatar border-gray"
-                                                                                    src="{{ asset('img/default.png') }}"
-                                                                                    alt="..." />
-
-                                                                                <h3 class="title">
-                                                                                    Mike Andrew <br>
-                                                                                    <small> <b>No induk : 0001</b> </small>
-                                                                                </h3>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="description row mt-5">
-                                                                            <div class="col-md-6">
-                                                                                <p>
-                                                                                    <br>
-                                                                                    Tempat Santri : Malang <br>
-                                                                                    Tanggal Santri : 17-19-2021 <br>
-                                                                                    Wali : Simoya Silokop <br>
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="col-md-6">
-                                                                                <br>
-                                                                                Alamat : Jl. Patimura Rt. 003/025 No. 123
-                                                                                Malang<br>
-                                                                                Status : Aktif<br>
-                                                                                Tanggal Masuk : 09-11-2021
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <hr>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">
-                                                                    Keluar
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModalLong" tabindex="-1"
+                            role="dialog" aria-labelledby="exampleModalLongTitle"
+                            aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Detail
+                                        </h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="card card-user">
+                                            <div id="detail" class="content">
+                                                <div class="author">
+                                                    <a href="#">
+                                                        <img class="avatar border-gray"
+                                                            src="{{ asset('img/default.png') }}"
+                                                            alt="..." />
+
+                                                        <h3 class="title">
+                                                            Mike Andrew <br>
+                                                            <small> <b>No induk : 0001</b> </small>
+                                                        </h3>
+                                                    </a>
+                                                </div>
+                                                <div class="description row mt-5">
+                                                    <div class="col-md-6">
+                                                        <p>
+                                                            <br>
+                                                            Tempat Santri : Malang <br>
+                                                            Tanggal Santri : 17-19-2021 <br>
+                                                            Wali : Simoya Silokop <br>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <br>
+                                                        Alamat : Jl. Patimura Rt. 003/025 No. 123
+                                                        Malang<br>
+                                                        Status : Aktif<br>
+                                                        Tanggal Masuk : 09-11-2021
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">
+                                            Keluar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js" integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{{ asset('/js/biodata.js') }}"></script>
 @endsection

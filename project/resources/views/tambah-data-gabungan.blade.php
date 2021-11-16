@@ -13,6 +13,13 @@
                         <div class="content">
                             <form method="POST" action="{{ url('/') }}/gabungan">
                                 @csrf
+                                @if (session('gagal') !== null)
+                                <div class="form-group">
+                                    <div class="alert alert-danger" role="alert">
+                                        {{ session('gagal') }}
+                                    </div>
+                                </div>
+                            @endif
                                 <div class="form-group">
                                     <label for="no_induk">Nomor Induk</label>
                                     <select name="no_induk" id="no_induk" class="form-control">
