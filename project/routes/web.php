@@ -31,7 +31,7 @@ Route::prefix('/biodata')->group(function () {
         Route::get('/add', [BiodataController::class, 'add']);
     });
     // route view
-    Route::get('/', [BiodataController::class, 'index']);
+    Route::get('/', [BiodataController::class, 'index'])->middleware('myAuth');
     Route::post('/', [BiodataController::class, 'store']);
 });
 
