@@ -54,10 +54,9 @@
                                                         data-target="#update_kamar" data-id="{{ $item->id_kamar }}">
                                                         Ubah
                                                     </button>
-                                                    <button type="button" class="btn btn-danger delete"
-                                                        data-id="{{ $item->id_kamar }}">
+                                                    <a href="" class="btn btn-danger delete">
                                                         Hapus
-                                                    </button>
+                                                    </a>
                                                 </center>
                                             </td>
                                         </tr>

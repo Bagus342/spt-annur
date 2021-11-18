@@ -56,10 +56,10 @@
                                                         data-target="#update_gabungan" data-id="">
                                                         Ubah
                                                     </button>
-                                                    <button type="button" class="btn btn-danger"
+                                                    <a href="" class="btn btn-danger"
                                                         onclick="return confirm('Apakah anda yakin untuk menghapus data tersebut');">
                                                         Hapus
-                                                    </button>
+                                                    </a>
                                                 </center>
                                             </td>
                                         </tr>

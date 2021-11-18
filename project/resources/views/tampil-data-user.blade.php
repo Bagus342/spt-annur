@@ -57,10 +57,10 @@
                                                         data-target="#update_user" data-id="">
                                                         Ubah
                                                     </button>
-                                                    <button type="button" class="btn btn-danger"
+                                                    <a href="" class="btn btn-danger"
                                                         onclick="return confirm('Apakah anda yakin untuk menghapus data tersebut');">
                                                         Hapus
-                                                    </button>
+                                                    </a>
                                                 </center>
                                             </td>
                                         </tr>
@@ -124,13 +124,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js"
-        integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{{ asset('js/user.js') }}"></script>
-@endsection
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js"
+                integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg=="
+                crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="{{ asset('js/user.js') }}"></script>
+    @endsection

@@ -60,10 +60,10 @@
                                     @foreach ($data as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
-                                            <td >{{ $item->noinduk_santri }}</td>
+                                            <td>{{ $item->noinduk_santri }}</td>
                                             <td>{{ $item->nama_santri }}</td>
                                             <td>{{ $item->tempat_santri }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_santri) }}</td>
+                                            <td>{{ $item->tanggal_santri }}</td>
                                             <td>{{ $item->wali_santri }}</td>
                                             <td>{{ $item->alamat_santri }}</td>
                                             <td>{{ $item->status === 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
@@ -80,10 +80,9 @@
                                                         data-target="#update_user" data-id="{{ $item->id_biodata }}">
                                                         Ubah
                                                     </button>
-                                                    <button type="button" class="btn btn-danger delete"
-                                                        data-id="{{ $item->id_biodata }}">
+                                                    <a href="" class="btn btn-danger delete">
                                                         Hapus
-                                                    </button>
+                                                    </a>
                                                 </center>
                                             </td>
                                         </tr>
@@ -218,7 +217,7 @@
                                                 <div class="form-group">
                                                     <label for="image" class="">Foto Santri</label>
                                                     <input type="hidden" name="oldImage">
-                                                    <input type="file" name="image" id="image"/>
+                                                    <input type="file" name="image" id="image" />
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Status</label><br />

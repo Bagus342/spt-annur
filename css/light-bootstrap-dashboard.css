@@ -2538,6 +2538,7 @@ fieldset[disabled] .form-control {
 .card .avatar {
   width: 250px !important;
   height: 250px !important;
+  object-fit: cover;
   overflow: hidden;
   border-radius: 50%;
   margin-right: 5px;
