@@ -70,7 +70,7 @@ class KategoriController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json([ 'data' => Kategori::where('id_kategori', $id)->first() ]);
     }
 
     /**
@@ -82,7 +82,31 @@ class KategoriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Kategori::where('nama_kategori', $request->nama_kategori)->first();
+            if ($data !== null) {
+                if ($data->nama_kategori === $request->nama_kategori && $data->id_kategori === (int) $id) {
+                    return $this->saveUpdate($request, $id);
+                } elseif ($data->id_user !== (int) $id) {
+                    return redirect()->back()->with('gagal', 'Nama kategori telah terdaftar');
+                } else {
+                    return $this->saveUpdate($request, $id);
+                }
+            } else {
+                return $this->saveUpdate($request, $id);
+            }
+    }
+
+    public function saveUpdate($request, $id) {
+        return Kategori::where('id_kategori', $id)->update([
+            'nama_kategori' => $request->nama_kategori,
+            'uang_makan' => $request->uang_makan,
+            'uang_infaq' => $request->uang_infaq,
+            'uang_kesehatan' => $request->uang_kesehatan,
+            'uang_tabungan' => $request->uang_tabungan,
+            'uang_tambahan' => $request->uang_tambahan,
+        ])
+            ? redirect('/kategori')->with('sukses', 'data berhasil di update')
+            : redirect()->back()->with('gagal', 'data gagal di update');
     }
 
     /**
@@ -93,6 +117,8 @@ class KategoriController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Kategori::where('id_kategori', $id)->delete()
+        ? redirect('/kategori')->with('sukses', 'Data berhasil dihapus')
+        : redirect()->back()->with('gagal', 'Data gagal dihapus');
     }
 }

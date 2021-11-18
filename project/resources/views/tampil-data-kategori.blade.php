@@ -58,14 +58,11 @@
                                             <td>
                                                 <center>
                                                     <!-- Button modal edit -->
-                                                    <button type="button" class="btn btn-warning detail" data-toggle="modal"
-                                                        data-target="#update_kategori" data-id="">
+                                                    <button type="button" class="btn btn-warning update" data-toggle="modal"
+                                                        data-target="#update_kategori" data-id="{{ $item->id_kategori }}">
                                                         Ubah
                                                     </button>
-                                                    <a href="" class="btn btn-danger"
-                                                        onclick="return confirm('Apakah anda yakin untuk menghapus data tersebut');">
-                                                        Hapus
-                                                    </a>
+                                                    <a href="{{ url('/') }}/kategori/{{ $item->id_kategori }}" class="btn btn-danger">Hapus</a>
                                                 </center>
                                             </td>
                                         </tr>
@@ -78,14 +75,15 @@
                                 aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
-                                        <form action="">
+                                        <form method="POST" action="" id="form-update">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">
                                                     UBAH DATA KATEGORI
                                                 </h5>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="">
                                                     <div class="form-group">
                                                         <label>Nama Kategori</label>
                                                         <input type="text" name="nama_kategori" class="form-control"
@@ -116,13 +114,12 @@
                                                         <input type="text" name="uang_tambahan" class="form-control"
                                                             placeholder="" required />
                                                     </div>
-                                                </form>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                     Keluar
                                                 </button>
-                                                <button type="button" class="btn btn-success">
+                                                <button type="submit" class="btn btn-success">
                                                     Simpan
                                                 </button>
                                             </div>

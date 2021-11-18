@@ -52,14 +52,11 @@
                                             <td>
                                                 <center>
                                                     <!-- Button modal edit -->
-                                                    <button type="button" class="btn btn-warning detail" data-toggle="modal"
-                                                        data-target="#update_gabungan" data-id="">
+                                                    <button type="button" class="btn btn-warning update" data-toggle="modal"
+                                                        data-target="#update_gabungan" data-id="{{ $item->id_gabungan }}">
                                                         Ubah
                                                     </button>
-                                                    <a href="" class="btn btn-danger"
-                                                        onclick="return confirm('Apakah anda yakin untuk menghapus data tersebut');">
-                                                        Hapus
-                                                    </a>
+                                                    <a href="{{ url('/') }}/gabungan/{{ $item->id_gabungan }}" class="btn btn-danger">Hapus</a>
                                                 </center>
                                             </td>
                                         </tr>
@@ -72,36 +69,48 @@
                                 aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
-                                        <form action="">
+                                        <form method="POST" action="" id="form-update">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">
                                                     UBAH DATA GABUNGAN
                                                 </h5>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="">
                                                     <div class="form-group">
-                                                        <label>No Induk</label>
-                                                        <input type="text" name="no_induk" class="form-control"
-                                                            placeholder="" required />
+                                                        <label for="no_induk">Nomor Induk</label>
+                                                        <select name="no_induk" id="no_induk" class="form-control">
+                                                            <option value="" >Pilih..</option>
+                                                            @foreach($biodata as $item)
+                                                            <option value="{{ $item->noinduk_santri }}" >{{ $item->noinduk_santri }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Nama Kategori</label>
-                                                        <input type="text" name="nama_kategori" class="form-control"
-                                                            placeholder="" required />
+                                                        <label for="no_induk">Nama Kategori</label>
+                                                        <select name="nama_kategori" id="nama_kategori" class="form-control">
+                                                            <option value="" >Pilih..</option>
+                                                            @foreach($kategori as $item)
+                                                            <option value="{{ $item->nama_kategori }}" >{{ $item->nama_kategori }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Nama Kamar</label>
-                                                        <input type="text" name="nama_kamar" class="form-control"
-                                                            placeholder="" required />
+                                                        <label for="no_induk">Nama Kamar</label>
+                                                        <select name="nama_kamar" id="nama_kamar" class="form-control">
+                                                            <option value="" >Pilih..</option>
+                                                            @foreach($kamar as $item)
+                                                            <option value="{{ $item->nama_kamar }}" >{{ $item->nama_kamar }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
-                                                </form>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                     Keluar
                                                 </button>
-                                                <button type="button" class="btn btn-success">
+                                                <button type="submit" class="btn btn-success">
                                                     Simpan
                                                 </button>
                                             </div>

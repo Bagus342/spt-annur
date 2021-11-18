@@ -19,6 +19,9 @@ class GabunganController extends Controller
     {
         return view('tampil-data-gabungan', [
             'data' => Gabungan::get(),
+            'biodata' => Biodata::get(),
+            'kamar' => Kamar::get(),
+            'kategori' => Kategori::get(),
             'title' => 'Data Gabungan'
         ]);
     }
@@ -74,7 +77,7 @@ class GabunganController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json([ 'data' => Gabungan::where('id_gabungan', $id)->first(), 'kamar' => Kamar::get(), 'kategori' => Kategori::get(), 'biodata' => Biodata::get() ]);
     }
 
     /**
@@ -86,7 +89,28 @@ class GabunganController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Gabungan::where('id_gabungan', $request->id_gabungan)->first();
+            if ($data !== null) {
+                if ($data->no_induk === $request->no_induk && $data->id_gabungan === (int) $id) {
+                    return $this->saveUpdate($request, $id);
+                } elseif ($data->id_user !== (int) $id) {
+                    return redirect()->back()->with('gagal', 'Nama gabungan telah terdaftar');
+                } else {
+                    return $this->saveUpdate($request, $id);
+                }
+            } else {
+                return $this->saveUpdate($request, $id);
+            }
+    }
+
+    public function saveUpdate($request, $id) {
+        return Gabungan::where('id_gabungan', $id)->update([
+            'no_induk' => $request->no_induk,
+            'nama_kamar' => $request->nama_kamar,
+            'nama_kategori' => $request->nama_kategori,
+        ])
+            ? redirect('/gabungan')->with('sukses', 'data berhasil di update')
+            : redirect()->back()->with('gagal', 'data gagal di update');
     }
 
     /**
@@ -97,6 +121,8 @@ class GabunganController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Gabungan::where('id_gabungan', $id)->delete()
+        ? redirect('/gabungan')->with('sukses', 'Data berhasil diupdate')
+        : redirect()->back()->with('gagal', 'Data gagal diupdate');
     }
 }

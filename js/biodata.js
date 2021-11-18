@@ -29,7 +29,7 @@ function getUpdate() {
           document.querySelector('input[name=tanggal_masuk]').value =
             res.data.tanggal_masuk;
           document.querySelector('input[name=oldImage]').value =
-            'img/' + res.data.foto_santri;
+            res.data.foto_santri;
           console.log(document.querySelector('input[name=oldImage]').value)
           $('input[name="status"][value="' + res.data.status + '"]').prop('checked', true);
         });
@@ -38,66 +38,6 @@ function getUpdate() {
 }
 
 getUpdate();
-
-function deleteD() {
-  const dt = document.getElementsByClassName('delete');
-
-  for (let i = 0; i < dt.length; i++) {
-    dt[i].addEventListener('click', function () {
-      const ID = this.getAttribute('data-id');
-      fetch(URL + '/biodata/' + ID)
-        .then((res) => res.json())
-        .then((res) => {
-          document.getElementById('list-data').innerHTML = parseDelete(res)
-        })
-    });
-  }
-}
-
-deleteD();
-
-const parseDelete = data => {
-  let html = '';
-  let no = 1;
-  data.data.map(res => {
-    html += displayDelete(res, no++);
-  });
-  return html;
-};
-
-const displayDelete = (res, no) => {
-  return /* html */ `
-  <tr>
-      <td>${no}</td>
-      <td>${res.noinduk_santri}</td>
-      <td>${res.nama_santri}</td>
-      <td>${res.tempat_santri}</td>
-      <td>${res.tanggal_santri}</td>
-      <td>${res.wali_santri}</td>
-      <td>${res.alamat_santri}</td>
-      <td>${res.status === 1 ? 'Aktif' : 'Tidak Aktif'}</td>
-      <td>${res.tanggal_masuk}</td>
-      <td>
-          <center>
-      <!-- Button modal detail -->
-      <button type="button" class="btn btn-primary detail" data-toggle="modal"
-          data-target="#detail_user" data-id="${res.id_biodata}">
-            Detail
-      </button>
-      <!-- Button modal edit -->
-      <button type="button" class="btn btn-warning update" data-toggle="modal"
-          data-target="#update_user" data-id="${res.id_biodata}">
-            Ubah
-      </button>
-      <button type="button" class="btn btn-danger delete"
-          data-id="${res.id_biodata}">
-            Hapus
-      </button>
-          </center>
-      </td>
-  </tr >
-  `
-}
 
 function displayD() {
   const dt = document.getElementsByClassName('detail');

@@ -109,6 +109,8 @@ class KamarController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Kamar::where('id_kamar', $id)->delete()
+        ? redirect('/kamar')->with('sukses', 'Data berhasil dihapus')
+        : redirect()->back()->with('gagal', 'Data gagal dihapus');
     }
 }

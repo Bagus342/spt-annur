@@ -115,10 +115,12 @@ class BiodataController extends Controller
 
     public function saveUpdate($request, $id) {
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:5000',
+            'image' => 'image|mimes:jpeg,png,jpg|max:5000',
         ]);
-            $filename = $request->image->getClientOriginalName();
-            $image = $request->image->storeAs('img', $request->no_induk.'-'.$filename);
+        if ($request->image) {
+                $filename = $request->image->getClientOriginalName();
+                Storage::delete($request->oldImage);
+                $image = $request->image->storeAs('img', $request->no_induk.'-'.$filename);
             return Biodata::where('id_biodata', $id)->update([
                 'nama_santri' => $request->nama_santri,
                 'noinduk_santri' => $request->no_induk,
@@ -129,9 +131,23 @@ class BiodataController extends Controller
                 'tanggal_masuk' => $request->tanggal_masuk,
                 'foto_santri' => $image,
                 'status' => $request->status,
+                ])
+                    ? redirect('/biodata')->with('sukses', 'data berhasil di update')
+                    : redirect()->back()->with('gagal', 'data gagal di update');
+        } else {
+            return Biodata::where('id_biodata', $id)->update([
+                'nama_santri' => $request->nama_santri,
+                'noinduk_santri' => $request->no_induk,
+                'tempat_santri' => $request->tempat_santri,
+                'tanggal_santri' => $request->tanggal_santri,
+                'wali_santri' => $request->wali_santri,
+                'alamat_santri' => $request->alamat_santri,
+                'tanggal_masuk' => $request->tanggal_masuk,
+                'status' => $request->status,
             ])
                 ? redirect('/biodata')->with('sukses', 'data berhasil di update')
                 : redirect()->back()->with('gagal', 'data gagal di update');
+        }
         }
 
     /**
@@ -148,7 +164,7 @@ class BiodataController extends Controller
         Storage::delete($image->foto_santri);
 
         return Biodata::where('id_biodata', $id)->delete()
-        ? response()->json(['berhasil' => true, 'data' => Biodata::get()])
-        : response()->json(['berhasil' => false]);
+        ? redirect('/biodata')->with('sukses', 'Data berhasil dihapus')
+        : redirect()->back()->with('gagal', 'Data gagal dihapus');
     }
 }
