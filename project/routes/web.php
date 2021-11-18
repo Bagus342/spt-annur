@@ -33,6 +33,12 @@ Route::prefix('/biodata')->group(function () {
     // route view
     Route::get('/', [BiodataController::class, 'index'])->middleware('myAuth');
     Route::post('/', [BiodataController::class, 'store']);
+    Route::put('/{id}', [BiodataController::class, 'update']);
+    Route::get('/{id}', [BiodataController::class, 'destroy']);
+    // route view update
+    Route::prefix('/json')->group(function () {
+        Route::get('/getBiodata/{id}', [BiodataController::class, 'edit']);
+    });
 });
 
 Route::prefix('/kamar')->group(function () {
@@ -42,6 +48,11 @@ Route::prefix('/kamar')->group(function () {
     // route view
     Route::get('/', [KamarController::class, 'index']);
     Route::post('/', [KamarController::class, 'store']);
+    Route::put('/{id}', [KamarController::class, 'update']);
+    // route view update
+    Route::prefix('/json')->group(function () {
+        Route::get('/getKamar/{id}', [KamarController::class, 'edit']);
+    });
 });
 
 Route::prefix('/kategori')->group(function () {

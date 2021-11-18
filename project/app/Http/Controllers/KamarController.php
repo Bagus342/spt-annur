@@ -66,7 +66,7 @@ class KamarController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json(['data' => Kamar::where('id_kamar', $id)->first(),]);
     }
 
     /**
@@ -78,7 +78,27 @@ class KamarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Kamar::where('nama_kamar', $request->nama_kamar)->first();
+            if ($data !== null) {
+                if ($data->nama_kamar === $request->nama_kamar && $data->id_kamar === (int) $id) {
+                    return $this->saveUpdate($request, $id);
+                } elseif ($data->id_user !== (int) $id) {
+                    return redirect()->back()->with('gagal', 'Nama kamar telah terdaftar');
+                } else {
+                    return $this->saveUpdate($request, $id);
+                }
+            } else {
+                return $this->saveUpdate($request, $id);
+            }
+    }
+
+    public function saveUpdate($request, $id) {
+        return Kamar::where('id_kamar', $id)->update([
+            'nama_kamar' => $request->nama_kamar,
+            'nama_kepala_kamar' => $request->kepala_kamar,
+        ])
+            ? redirect('/kamar')->with('sukses', 'data berhasil di update')
+            : redirect()->back()->with('gagal', 'data gagal di update');
     }
 
     /**

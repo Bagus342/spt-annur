@@ -76,12 +76,12 @@
                                                         Detail
                                                     </button>
                                                     <!-- Button modal edit -->
-                                                    <button type="button" class="btn btn-warning detail" data-toggle="modal"
-                                                        data-target="#update_user" data-id="">
+                                                    <button type="button" class="btn btn-warning update" data-toggle="modal"
+                                                        data-target="#update_user" data-id="{{ $item->id_biodata }}">
                                                         Ubah
                                                     </button>
-                                                    <button type="button" class="btn btn-danger"
-                                                        onclick="return confirm('Apakah anda yakin untuk menghapus data tersebut');">
+                                                    <button type="button" class="btn btn-danger delete"
+                                                        data-id="{{ $item->id_biodata }}">
                                                         Hapus
                                                     </button>
                                                 </center>
@@ -171,7 +171,9 @@
                                 aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
-                                        <form action="">
+                                        <form method="post" action="" id="form-update" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">
                                                     UBAH DATA SANTRI
@@ -214,8 +216,9 @@
                                                         placeholder="" required />
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="foto" class="">Foto Santri</label>
-                                                    <input type="file" name="image" id="image" />
+                                                    <label for="image" class="">Foto Santri</label>
+                                                    <input type="hidden" name="oldImage">
+                                                    <input type="file" name="image" id="image"/>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Status</label><br />
@@ -229,7 +232,7 @@
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                     Keluar
                                                 </button>
-                                                <button type="button" class="btn btn-success">
+                                                <button type="submit" class="btn btn-success">
                                                     Simpan
                                                 </button>
                                             </div>
