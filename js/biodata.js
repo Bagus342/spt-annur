@@ -58,7 +58,7 @@ displayD();
 
 const detail = (res) => {
   return /* html */ `
-  < div class="author" >
+  <div class="author" >
     <a href="${'img/' + res.foto_santri}">
       <img class="avatar border-gray"
         src="${'img/' + res.foto_santri}" alt="..." />

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Biodata;
+use App\Models\Gabungan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,6 +18,7 @@ class BiodataController extends Controller
     {
         return view('tampil-data-biodata', [
             'data' => Biodata::get(),
+            'gabungan' => Gabungan::get(),
             'title' => 'Biodata Santri'
         ]);
     }

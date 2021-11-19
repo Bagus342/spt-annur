@@ -54,9 +54,19 @@
                                                         data-target="#update_kamar" data-id="{{ $item->id_kamar }}">
                                                         Ubah
                                                     </button>
-                                                    <a href="{{ url('/') }}/kamar/{{ $item->id_kamar }}" class="btn btn-danger delete">
+                                                    <?php if (count($gabungan) === 0) : ?>
+                                                        <a href="{{ url('/') }}/kamar/{{ $item->id_kamar }}" class="btn btn-danger">Hapus</a>
+                                                    <?php else : ?>
+                                                    @foreach($gabungan as $filter)
+                                                        @if($filter->nama_kamar === $item->nama_kamar)
+                                                        <button type="button" class="btn btn-danger" disabled>
                                                         Hapus
-                                                    </a>
+                                                    </button>
+                                                        @else
+                                                        <a href="{{ url('/') }}/kamar/{{ $item->id_kamar }}" class="btn btn-danger">Hapus</a>
+                                                        @endif
+                                                    @endforeach
+                                                    <?php endif ?>
                                                 </center>
                                             </td>
                                         </tr>

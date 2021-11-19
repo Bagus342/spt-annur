@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kamar;
+use App\Models\Gabungan;
 use Illuminate\Http\Request;
 
 class KamarController extends Controller
@@ -16,6 +17,7 @@ class KamarController extends Controller
     {
         return view('tampil-data-kamar', [
             'data' => Kamar::get(),
+            'gabungan' => Gabungan::get(),
             'title' => 'Data Kamar Santri'
         ]);
     }

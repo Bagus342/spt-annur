@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kategori;
+use App\Models\Gabungan;
 use Illuminate\Http\Request;
 
 class KategoriController extends Controller
@@ -16,6 +17,7 @@ class KategoriController extends Controller
     {
         return view('tampil-data-kategori', [
             'data' => Kategori::get(),
+            'gabungan' => Gabungan::get(),
             'title' => 'Data Kategori',
         ]);
     }

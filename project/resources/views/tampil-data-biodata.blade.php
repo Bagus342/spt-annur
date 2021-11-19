@@ -80,9 +80,19 @@
                                                         data-target="#update_user" data-id="{{ $item->id_biodata }}">
                                                         Ubah
                                                     </button>
-                                                    <a href="{{ url('/') }}/biodata/{{ $item->id_biodata }}" class="btn btn-danger delete">
+                                                    <?php if (count($gabungan) === 0) : ?>
+                                                        <a href="{{ url('/') }}/biodata/{{ $item->id_biodata }}" class="btn btn-danger">Hapus</a>
+                                                    <?php else : ?>
+                                                    @foreach($gabungan as $filter)
+                                                        @if($filter->no_induk === $item->noinduk_santri)
+                                                        <button type="button" class="btn btn-danger" disabled>
                                                         Hapus
-                                                    </a>
+                                                    </button>
+                                                        @else
+                                                        <a href="{{ url('/') }}/biodata/{{ $item->id_biodata }}" class="btn btn-danger">Hapus</a>
+                                                        @endif
+                                                    @endforeach
+                                                    <?php endif ?>
                                                 </center>
                                             </td>
                                         </tr>

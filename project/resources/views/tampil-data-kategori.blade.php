@@ -62,7 +62,19 @@
                                                         data-target="#update_kategori" data-id="{{ $item->id_kategori }}">
                                                         Ubah
                                                     </button>
-                                                    <a href="{{ url('/') }}/kategori/{{ $item->id_kategori }}" class="btn btn-danger">Hapus</a>
+                                                    <?php if (count($gabungan) === 0) : ?>
+                                                        <a href="{{ url('/') }}/kategori/{{ $item->id_kategori }}" class="btn btn-danger">Hapus</a>
+                                                    <?php else : ?>
+                                                    @foreach($gabungan as $filter)
+                                                        @if($filter->nama_kategori === $item->nama_kategori)
+                                                        <button type="button" class="btn btn-danger" disabled>
+                                                        Hapus
+                                                    </button>
+                                                        @else
+                                                        <a href="{{ url('/') }}/kategori/{{ $item->id_kategori }}" class="btn btn-danger">Hapus</a>
+                                                        @endif
+                                                    @endforeach
+                                                    <?php endif ?>
                                                 </center>
                                             </td>
                                         </tr>
