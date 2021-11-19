@@ -41,13 +41,18 @@ class KategoriController extends Controller
      */
     public function store(Request $request)
     {
+        $uang_makan = explode('Rp. ', $request->uang_makan);
+        $uang_infaq = explode('Rp. ', $request->uang_infaq);
+        $uang_kesehatan = explode('Rp. ', $request->uang_kesehatan);
+        $uang_tabungan = explode('Rp. ', $request->uang_tabungan);
+        $uang_tambahan = explode('Rp. ', $request->uang_tambahan);
         return Kategori::insert([
             'nama_kategori' => $request->nama_kategori,
-            'uang_makan' => $request->uang_makan,
-            'uang_infaq' => $request->uang_infaq,
-            'uang_kesehatan' => $request->uang_kesehatan,
-            'uang_tabungan' => $request->uang_tabungan,
-            'uang_tambahan' => $request->uang_tambahan,
+            'uang_makan' => str_replace('.', '', $uang_makan[1]),
+            'uang_infaq' => str_replace('.', '', $uang_infaq[1]),
+            'uang_kesehatan' => str_replace('.', '', $uang_kesehatan[1]),
+            'uang_tabungan' => str_replace('.', '', $uang_tabungan[1]),
+            'uang_tambahan' => str_replace('.', '', $uang_tambahan[1]),
         ])
                 ? redirect('/kategori')->with('sukses', 'Data kategori berhasil ditambah')
                 : redirect()->back()->with('gagal', 'Gagal menambahkan data');
@@ -99,13 +104,18 @@ class KategoriController extends Controller
     }
 
     public function saveUpdate($request, $id) {
+        $uang_makan = explode('Rp. ', $request->uang_makan);
+        $uang_infaq = explode('Rp. ', $request->uang_infaq);
+        $uang_kesehatan = explode('Rp. ', $request->uang_kesehatan);
+        $uang_tabungan = explode('Rp. ', $request->uang_tabungan);
+        $uang_tambahan = explode('Rp. ', $request->uang_tambahan);
         return Kategori::where('id_kategori', $id)->update([
             'nama_kategori' => $request->nama_kategori,
-            'uang_makan' => $request->uang_makan,
-            'uang_infaq' => $request->uang_infaq,
-            'uang_kesehatan' => $request->uang_kesehatan,
-            'uang_tabungan' => $request->uang_tabungan,
-            'uang_tambahan' => $request->uang_tambahan,
+            'uang_makan' => str_replace('.', '', $uang_makan[1]),
+            'uang_infaq' => str_replace('.', '', $uang_infaq[1]),
+            'uang_kesehatan' => str_replace('.', '', $uang_kesehatan[1]),
+            'uang_tabungan' => str_replace('.', '', $uang_tabungan[1]),
+            'uang_tambahan' => str_replace('.', '', $uang_tambahan[1]),
         ])
             ? redirect('/kategori')->with('sukses', 'data berhasil di update')
             : redirect()->back()->with('gagal', 'data gagal di update');

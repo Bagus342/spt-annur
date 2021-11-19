@@ -50,11 +50,11 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->nama_kategori }}</td>
-                                            <td>{{ $item->uang_makan }}</td>
-                                            <td>{{ $item->uang_infaq }}</td>
-                                            <td>{{ $item->uang_kesehatan }}</td>
-                                            <td>{{ $item->uang_tabungan }}</td>
-                                            <td>{{ $item->uang_tambahan }}</td>
+                                            <td>{{ formatRupiah($item->uang_makan) }}</td>
+                                            <td>{{ formatRupiah($item->uang_infaq) }}</td>
+                                            <td>{{ formatRupiah($item->uang_kesehatan) }}</td>
+                                            <td>{{ formatRupiah($item->uang_tabungan) }}</td>
+                                            <td>{{ formatRupiah($item->uang_tambahan) }}</td>
                                             <td>
                                                 <center>
                                                     <!-- Button modal edit -->
@@ -96,36 +96,40 @@
                                                 </h5>
                                             </div>
                                             <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <label>Nama Kategori</label>
-                                                        <input type="text" name="nama_kategori" class="form-control"
-                                                            placeholder="" required />
+                                                <div class="form-group">
+                                                    <label>Nama Kategori</label>
+                                                    <input type="text" name="nama_kategori" class="form-control" placeholder="" required/>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    <label for="exampleInputPassword1">Uang Makan</label>
+                                                    <div class="input-group-prepend">
+                                                        <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control uang_makan" placeholder="Uang Makan" name="uang_makan" required>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Uang Makan</label>
-                                                        <input type="text" name="uang_makan" class="form-control"
-                                                            placeholder="" required />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Uang Infaq</label>
-                                                        <input type="text" name="uang_infaq" class="form-control"
-                                                            placeholder="" required />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Uang Kesehatan</label>
-                                                        <input type="text" name="uang_kesehatan" class="form-control"
-                                                            placeholder="" required />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Uang Tabungan</label>
-                                                        <input type="text" name="uang_tabungan" class="form-control"
-                                                            placeholder="" required />
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label>Uang Tambahan</label>
-                                                        <input type="text" name="uang_tambahan" class="form-control"
-                                                            placeholder="" required />
-                                                    </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="exampleInputPassword1">Uang Infaq</label>
+                                                      <div class="input-group-prepend">
+                                                          <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control uang_infaq" placeholder="Uang Infaq" name="uang_infaq" required>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="exampleInputPassword1">Uang Kesehatan</label>
+                                                      <div class="input-group-prepend">
+                                                          <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control uang_kesehatan" placeholder="Uang Kesehatan" name="uang_kesehatan" required>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="exampleInputPassword1">Uang Tabungan</label>
+                                                      <div class="input-group-prepend">
+                                                          <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control uang_tabungan" placeholder="Uang Tabungan" name="uang_tabungan" required>
+                                                      </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                      <label for="exampleInputPassword1">Uang Tambahan</label>
+                                                      <div class="input-group-prepend">
+                                                          <input type="text" value="Rp. " onkeypress="return isNumber(event)" class="form-control uang_tambahan" placeholder="Uang Tambahan" name="uang_tambahan" required>
+                                                      </div>
+                                                  </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
@@ -151,4 +155,11 @@
         integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('js/kategori.js') }}"></script>
+    <script>
+        function isNumber(evt) {
+            var charCode = evt.which ? evt.which : event.keyCode;
+            if (charCode > 31 && (charCode < 48 || charCode > 57)) return false;
+            return true;
+        }
+    </script>
 @endsection

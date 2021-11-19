@@ -17,15 +17,30 @@ function getUpdate() {
                     document.querySelector('input[name=nama_kategori]').value =
                         res.data.nama_kategori;
                     document.querySelector('input[name=uang_makan]').value =
-                        res.data.uang_makan;
+                        formatRupiah(
+                            res.data.uang_makan.toString(),
+                            'Rp. '
+                        );
                     document.querySelector('input[name=uang_infaq]').value =
-                        res.data.uang_infaq;
+                        formatRupiah(
+                            res.data.uang_infaq.toString(),
+                            'Rp. '
+                        );
                     document.querySelector('input[name=uang_kesehatan]').value =
-                        res.data.uang_kesehatan;
+                        formatRupiah(
+                            res.data.uang_kesehatan.toString(),
+                            'Rp. '
+                        );
                     document.querySelector('input[name=uang_tabungan]').value =
-                        res.data.uang_tabungan;
+                        formatRupiah(
+                            res.data.uang_tabungan.toString(),
+                            'Rp. '
+                        );
                     document.querySelector('input[name=uang_tambahan]').value =
-                        res.data.uang_tambahan;
+                        formatRupiah(
+                            res.data.uang_tambahan.toString(),
+                            'Rp. '
+                        );
                 });
         });
     }
@@ -65,4 +80,57 @@ if (errorflash.getAttribute('data-flash-error') !== '') {
         icon: 'error',
         title: `${errorflash.getAttribute('data-flash-error')}`,
     });
+}
+
+var uang_makan = document.querySelector('.uang_makan');
+uang_makan.addEventListener('keyup', function (e) {
+
+    const val = this.value.split('Rp. ')
+    val.length > 1 ? uang_makan.value = formatRupiah(val[1], 'Rp. ') : uang_makan.value = formatRupiah(this.value, 'Rp. ')
+});
+
+var uang_infaq = document.querySelector('.uang_infaq');
+uang_infaq.addEventListener('keyup', function (e) {
+
+    const val = this.value.split('Rp. ')
+    val.length > 1 ? uang_infaq.value = formatRupiah(val[1], 'Rp. ') : uang_infaq.value = formatRupiah(this.value, 'Rp. ')
+});
+
+var uang_kesehatan = document.querySelector('.uang_kesehatan');
+uang_kesehatan.addEventListener('keyup', function (e) {
+
+    const val = this.value.split('Rp. ')
+    val.length > 1 ? uang_kesehatan.value = formatRupiah(val[1], 'Rp. ') : uang_kesehatan.value = formatRupiah(this.value, 'Rp. ')
+});
+
+var uang_tabungan = document.querySelector('.uang_tabungan');
+uang_tabungan.addEventListener('keyup', function (e) {
+
+    const val = this.value.split('Rp. ')
+    val.length > 1 ? uang_tabungan.value = formatRupiah(val[1], 'Rp. ') : uang_tabungan.value = formatRupiah(this.value, 'Rp. ')
+});
+
+var uang_tambahan = document.querySelector('.uang_tambahan');
+uang_tambahan.addEventListener('keyup', function (e) {
+
+    const val = this.value.split('Rp. ')
+    val.length > 1 ? uang_tambahan.value = formatRupiah(val[1], 'Rp. ') : uang_tambahan.value = formatRupiah(this.value, 'Rp. ')
+});
+
+/* Fungsi formatRupiah */
+function formatRupiah(angka, prefix) {
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+        split = number_string.split(','),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+        separator = sisa ? '.' : '';
+        rupiah += separator + ribuan.join('.');
+    }
+
+    rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+    return prefix == undefined ? rupiah : (rupiah ? 'Rp. ' + rupiah : '');
 }
