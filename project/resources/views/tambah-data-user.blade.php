@@ -41,7 +41,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Masuk</label>
-                                    <input type="date" name="tgl_masuk" class="form-control" placeholder="" required />
+                                    <input type="text" id="tgl" name="tgl_masuk" class="form-control" placeholder=""
+                                        required />
                                 </div>
                                 <button type="submit" class="btn btn-info btn-fill pull-right">Tambah User</button>
                                 <div class="clearfix"></div>
@@ -51,6 +52,14 @@
                 </div>
             </div>
         </div>
-
     </div>
+
+    {{-- Datepicker --}}
+    <script type="text/javascript">
+        $(function() {
+            $('#tgl').datetimepicker({
+                format: 'DD/MM/YYYY',
+            });
+        });
+    </script>
 @endsection

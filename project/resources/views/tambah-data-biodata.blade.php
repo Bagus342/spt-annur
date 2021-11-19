@@ -82,6 +82,8 @@
             </div>
         </form>
     </div>
+
+    {{-- Datepicker --}}
     <script type="text/javascript">
         $(function() {
             $('#tgl').datetimepicker({
