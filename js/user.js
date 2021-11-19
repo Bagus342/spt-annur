@@ -9,16 +9,22 @@ function getUpdate() {
             console.log(id)
             document
                 .getElementById('form-update')
-                .setAttribute('action', URL + '/kamar/' + id);
+                .setAttribute('action', URL + '/user/' + id);
 
-            fetch(`${URL}/kamar/json/getKamar/${id}`)
+            fetch(`${URL}/user/json/getUser/${id}`)
                 .then(res => res.json())
                 .then(res => {
-                    document.querySelector('input[name=nama_kamar]').value =
-                        res.data.nama_kamar;
-                    document.querySelector('input[name=kepala_kamar]').value =
-                        res.data.nama_kepala_kamar;
-
+                    const tgl_masuk = res.data.tanggal_masuk.split('-');
+                    document.querySelector('input[name=nama_user]').value =
+                        res.data.nama_user;
+                    document.querySelector('input[name=username]').value =
+                        res.data.username;
+                    document.querySelector('input[name=password]').value =
+                        res.data.text;
+                    document.querySelector('select[name=level]').value =
+                        res.data.level;
+                    document.querySelector('input[name=tgl_masuk]').value =
+                        `${tgl_masuk[2]}-${tgl_masuk[1]}-${tgl_masuk[0]}`
                 });
         });
     }

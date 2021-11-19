@@ -31,10 +31,10 @@ Route::prefix('/biodata')->group(function () {
         Route::get('/add', [BiodataController::class, 'add']);
     });
     // route view
-    Route::get('/', [BiodataController::class, 'index'])->middleware('myAuth');
-    Route::post('/', [BiodataController::class, 'store']);
-    Route::put('/{id}', [BiodataController::class, 'update']);
-    Route::get('/{id}', [BiodataController::class, 'destroy']);
+    Route::get('/', [BiodataController::class, 'index'])->middleware('Admin');
+    Route::post('/', [BiodataController::class, 'store'])->middleware('Admin');
+    Route::put('/{id}', [BiodataController::class, 'update'])->middleware('Admin');
+    Route::get('/{id}', [BiodataController::class, 'destroy'])->middleware('Admin');
     // route view update
     Route::prefix('/json')->group(function () {
         Route::get('/getBiodata/{id}', [BiodataController::class, 'edit']);

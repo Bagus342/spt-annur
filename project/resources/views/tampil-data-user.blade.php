@@ -76,14 +76,15 @@
                                 aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-lg" role="document">
                                     <div class="modal-content">
-                                        <form action="">
+                                        <form method="POST" action="" id="form-update">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">
                                                     UBAH DATA GABUNGAN
                                                 </h5>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="">
                                                     <div class="form-group">
                                                         <label>Nama User</label>
                                                         <input type="text" name="nama_user" class="form-control"
@@ -112,13 +113,12 @@
                                                         <input type="text" id="tgl" name="tgl_masuk" class="form-control"
                                                             placeholder="" required />
                                                     </div>
-                                                </form>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">
                                                     Keluar
                                                 </button>
-                                                <button type="button" class="btn btn-success">
+                                                <button type="submit" class="btn btn-success">
                                                     Simpan
                                                 </button>
                                             </div>
@@ -140,7 +140,7 @@
         <script type="text/javascript">
             $(function() {
                 $('#tgl').datetimepicker({
-                    format: 'DD/MM/YYYY',
+                    format: 'DD-MM-YYYY',
                 });
             });
         </script>

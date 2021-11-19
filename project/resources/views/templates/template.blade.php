@@ -79,6 +79,7 @@
                             <p>Dashboard</p>
                         </a>
                     </li>
+                    @if(session('role') === 1)
                     <li class="dropdown-btn">
                         <a href="#">
                             <i class="pe-7s-angle-down-circle"></i>
@@ -117,7 +118,7 @@
                             </a>
                         </li>
                     </div>
-
+                    @endif
                     <li class="dropdown-btn">
                         <a href="#">
                             <i class="pe-7s-angle-down-circle"></i>

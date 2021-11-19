@@ -59,17 +59,18 @@ function displayD() {
 displayD();
 
 const detail = (res) => {
+  const tgl_lahir = res.tanggal_santri.split('-')
+  const tgl_masuk = res.tanggal_masuk.split('-')
   return /* html */ `
   <div class="author" >
     <a href="${'img/' + res.foto_santri}">
       <img class="avatar border-gray"
         src="${'img/' + res.foto_santri}" alt="..." />
-
+    </a>
       <h3 class="title">
         ${res.nama_santri} <br>
         <small> <b>No induk: ${res.noinduk_santri}</b> </small>
       </h3>
-    </a>
 </div >
   <div class="description row mt-5 tabel">
     <div class="col-md-6">
@@ -82,7 +83,7 @@ const detail = (res) => {
         <tr>
           <td>Tanggal Lahir</td>
           <td>:</td>
-          <td>${res.tanggal_santri}</td>
+          <td>${`${tgl_lahir[2]}-${tgl_lahir[1]}-${tgl_lahir[0]}`}</td>
         </tr>
         <tr>
           <td>Wali Santri</td>
@@ -94,7 +95,7 @@ const detail = (res) => {
     <div class="col-md-6">
       <table class="table">
         <tr>
-          <td>Alamat</td>
+          <td>Alamat Santri</td>
           <td>:</td>
           <td>${res.alamat_santri}</td>
         </tr>
@@ -106,7 +107,7 @@ const detail = (res) => {
         <tr>
           <td>Tanggal Masuk</td>
           <td>:</td>
-          <td>${res.tanggal_masuk}</td>
+          <td>${`${tgl_masuk[2]}-${tgl_masuk[1]}-${tgl_masuk[0]}`}</td>
         </tr>
       </table>
     </div>

@@ -45,6 +45,7 @@ class UserController extends Controller
                 'nama_user' => $request->nama_user,
                 'username' => $request->username,
                 'password' => bcrypt($request->password),
+                'text' => $request->password,
                 'level' => $request->level,
                 'tanggal_masuk' => tanggal($request->tgl_masuk),
             ])
