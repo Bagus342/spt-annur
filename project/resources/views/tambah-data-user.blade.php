@@ -58,7 +58,7 @@
     <script type="text/javascript">
         $(function() {
             $('#tgl').datetimepicker({
-                format: 'DD/MM/YYYY',
+                format: 'DD-MM-YYYY',
             });
         });
     </script>

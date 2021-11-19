@@ -93,6 +93,12 @@ Route::prefix('/user')->group(function () {
     // route view
     Route::get('/', [UserController::class, 'index']);
     Route::post('/', [UserController::class, 'store']);
+    Route::put('/{id}', [UserController::class, 'update']);
+    Route::get('/{id}', [UserController::class, 'destroy']);
+    // route view update
+    Route::prefix('/json')->group(function () {
+        Route::get('/getUser/{id}', [UserController::class, 'edit']);
+    });
 });
 
 Route::prefix('/detail')->group(function () {

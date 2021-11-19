@@ -46,7 +46,7 @@ class UserController extends Controller
                 'username' => $request->username,
                 'password' => bcrypt($request->password),
                 'level' => $request->level,
-                'tanggal_masuk' => $request->tgl_masuk,
+                'tanggal_masuk' => tanggal($request->tgl_masuk),
             ])
                 ? redirect('/user')->with('sukses', 'Data Santri berhasil ditambah')
                 : redirect()->back()->with('gagal', 'Gagal menambahkan data');
@@ -74,7 +74,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return response()->json([ 'data' => User::where('id_user', $id)->first() ]);
     }
 
     /**
@@ -86,7 +86,31 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::where('username', $request->username)->first();
+        if ($data !== null) {
+            if ($data->username === $request->username && $data->id_user === (int) $id) {
+                return $this->saveUpdate($request, $id);
+            } elseif ($data->id_user !== (int) $id) {
+                return redirect()->back()->with('gagal', 'username telah dipakai');
+            } else {
+                return $this->saveUpdate($request, $id);
+            }
+        } else {
+            return $this->saveUpdate($request, $id);
+        }
+    }
+
+    public function saveUpdate($request, $id)
+    {
+        return User::where('id_user', $id)->update([
+            'nama_user' => $request->nama_user,
+            'username' => $request->username,
+            'password' => bcrypt($request->password),
+            'level' => $request->level,
+            'tanggal_masuk' => tanggal($request->tgl_masuk),
+        ])
+            ? redirect('/user')->with('sukses', 'data berhasil di update')
+            : redirect()->back()->with('error', 'data gagal di update');
     }
 
     /**
@@ -97,6 +121,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return User::where('id_user', $id)->delete()
+        ? redirect('/user')->with('sukses', 'Data berhasil dihapus')
+        : redirect()->back()->with('gagal', 'Data gagal dihapus');
     }
 }

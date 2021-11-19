@@ -70,19 +70,28 @@
                                             <td>{{ formatTanggal($item->tanggal_masuk) }}</td>
                                             <td>
                                                 <center>
-                                                    <!-- Button modal detail -->
                                                     <button type="button" class="btn btn-primary detail" data-toggle="modal"
                                                         data-target="#detail_user" data-id="{{ $item->id_biodata }}">
                                                         Detail
                                                     </button>
-                                                    <!-- Button modal edit -->
                                                     <button type="button" class="btn btn-warning update" data-toggle="modal"
                                                         data-target="#update_user" data-id="{{ $item->id_biodata }}">
                                                         Ubah
                                                     </button>
-                                                    <a href="" class="btn btn-danger delete">
+                                                    <!-- Button modal detail -->
+                                                    <?php if (count($gabungan) === 0) : ?>
+                                                        <a href="{{ url('/') }}/biodata/{{ $item->id_biodata }}" class="btn btn-danger">Hapus</a>
+                                                    <?php else : ?>
+                                                    @foreach($gabungan as $filter)
+                                                        @if($filter->no_induk === $item->noinduk_santri)
+                                                        <button type="button" class="btn btn-danger" disabled>
                                                         Hapus
-                                                    </a>
+                                                    </button>
+                                                        @else
+                                                        <a href="{{ url('/') }}/biodata/{{ $item->id_biodata }}" class="btn btn-danger">Hapus</a>
+                                                        @endif
+                                                    @endforeach
+                                                    <?php endif ?>
                                                 </center>
                                             </td>
                                         </tr>
@@ -255,14 +264,14 @@
     <script type="text/javascript">
         $(function() {
             $('#tgl').datetimepicker({
-                format: 'DD/MM/YYYY',
+                format: 'DD-MM-YYYY',
             });
         });
     </script>
     <script type="text/javascript">
         $(function() {
             $('#tgl1').datetimepicker({
-                format: 'DD/MM/YYYY'
+                format: 'DD-MM-YYYY'
             });
         });
     </script>

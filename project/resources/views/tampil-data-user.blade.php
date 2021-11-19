@@ -49,18 +49,21 @@
                                             <td>{{ $item->nama_user }}</td>
                                             <td>{{ $item->username }}</td>
                                             <td>{{ $item->level === 1 ? 'Admin' : 'Pengurus' }}</td>
-                                            <td>{{ $item->tanggal_masuk }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_masuk) }}</td>
                                             <td>
                                                 <center>
                                                     <!-- Button modal edit -->
-                                                    <button type="button" class="btn btn-warning detail" data-toggle="modal"
-                                                        data-target="#update_user" data-id="">
+                                                    <button type="button" class="btn btn-warning update" data-toggle="modal"
+                                                        data-target="#update_user" data-id="{{ $item->id_user }}">
                                                         Ubah
                                                     </button>
-                                                    <a href="" class="btn btn-danger"
-                                                        onclick="return confirm('Apakah anda yakin untuk menghapus data tersebut');">
+                                                    @if(session('user_id') === $item->id_user)
+                                                    <button type="button" class="btn btn-danger" disabled>
                                                         Hapus
-                                                    </a>
+                                                    </button> 
+                                                    @else
+                                                        <a href="{{ url('/') }}/user/{{ $item->id_user }}" class="btn btn-danger">Hapus</a>
+                                                    @endif
                                                 </center>
                                             </td>
                                         </tr>

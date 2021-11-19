@@ -1000,7 +1000,7 @@ fieldset[disabled] .btn-danger:focus,
 fieldset[disabled] .btn-danger.focus,
 fieldset[disabled] .btn-danger:active,
 fieldset[disabled] .btn-danger.active {
-  background-color: transparent;
+  background-color: #ff4a55;
   border-color: #ff4a55;
 }
 
