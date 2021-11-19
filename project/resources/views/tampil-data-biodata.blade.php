@@ -63,11 +63,11 @@
                                             <td>{{ $item->noinduk_santri }}</td>
                                             <td>{{ $item->nama_santri }}</td>
                                             <td>{{ $item->tempat_santri }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_santri) }}</td>
+                                            <td>{{ $item->tanggal_santri }}</td>
                                             <td>{{ $item->wali_santri }}</td>
                                             <td>{{ $item->alamat_santri }}</td>
                                             <td>{{ $item->status === 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
-                                            <td>{{ formatTanggal($item->tanggal_masuk) }}</td>
+                                            <td>{{ $item->tanggal_masuk }}</td>
                                             <td>
                                                 <center>
                                                     <!-- Button modal detail -->
@@ -80,19 +80,9 @@
                                                         data-target="#update_user" data-id="{{ $item->id_biodata }}">
                                                         Ubah
                                                     </button>
-                                                    <?php if (count($gabungan) === 0) : ?>
-                                                        <a href="{{ url('/') }}/biodata/{{ $item->id_biodata }}" class="btn btn-danger">Hapus</a>
-                                                    <?php else : ?>
-                                                    @foreach($gabungan as $filter)
-                                                        @if($filter->no_induk === $item->noinduk_santri)
-                                                        <button type="button" class="btn btn-danger" disabled>
+                                                    <a href="" class="btn btn-danger delete">
                                                         Hapus
-                                                    </button>
-                                                        @else
-                                                        <a href="{{ url('/') }}/biodata/{{ $item->id_biodata }}" class="btn btn-danger">Hapus</a>
-                                                        @endif
-                                                    @endforeach
-                                                    <?php endif ?>
+                                                    </a>
                                                 </center>
                                             </td>
                                         </tr>
@@ -206,7 +196,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Tanggal Lahir</label>
-                                                    <input type="date" name="tanggal_santri" class="form-control"
+                                                    <input type="text" id="tgl" name="tanggal_santri" class="form-control"
                                                         placeholder="" required />
                                                 </div>
                                                 <div class="form-group">
@@ -221,7 +211,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Tanggal Masuk</label>
-                                                    <input type="date" name="tanggal_masuk" class="form-control"
+                                                    <input type="text" id="tgl1" name="tanggal_masuk" class="form-control"
                                                         placeholder="" required />
                                                 </div>
                                                 <div class="form-group">
@@ -256,9 +246,24 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.0.18/sweetalert2.min.js"
         integrity="sha512-mBSqtiBr4vcvTb6BCuIAgVx4uF3EVlVvJ2j+Z9USL0VwgL9liZ638rTANn5m1br7iupcjjg/LIl5cCYcNae7Yg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{ asset('/js/biodata.js') }}"></script>
+
+    {{-- Datepicker --}}
+    <script type="text/javascript">
+        $(function() {
+            $('#tgl').datetimepicker({
+                format: 'DD/MM/YYYY',
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#tgl1').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
 @endsection

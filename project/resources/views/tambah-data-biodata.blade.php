@@ -38,9 +38,14 @@
                                     <input type="text" name="tempat_santri" class="form-control" placeholder=""
                                         required />
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label>Tanggal Lahir</label>
                                     <input type="date" name="tanggal_santri" class="form-control" placeholder=""
+                                        required />
+                                </div> --}}
+                                <div class="form-group">
+                                    <label>Tanggal Lahir</label>
+                                    <input type="text" id="tgl" name="tanggal_santri" class="form-control" placeholder=""
                                         required />
                                 </div>
                                 <div class="form-group">
@@ -54,7 +59,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Tanggal Masuk</label>
-                                    <input type="date" name="tanggal_masuk" class="form-control" placeholder=""
+                                    <input type="text" id="tgl1" name="tanggal_masuk" class="form-control" placeholder=""
                                         required />
                                 </div>
                                 <div class="form-group">
@@ -77,4 +82,18 @@
             </div>
         </form>
     </div>
+    <script type="text/javascript">
+        $(function() {
+            $('#tgl').datetimepicker({
+                format: 'DD/MM/YYYY',
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $('#tgl1').datetimepicker({
+                format: 'DD/MM/YYYY'
+            });
+        });
+    </script>
 @endsection

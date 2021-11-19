@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="{{asset('/img/favicon.ico')}}" />
+    <link rel="icon" type="image/png" href="{{ asset('/img/favicon.ico') }}" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <title>Index</title>
@@ -33,10 +33,28 @@
     <!-- Custom CSS Dropdown -->
     <link rel="stylesheet" href="{{ asset('css/dropdown.css') }}" />
     @yield('css-list')
+
+    <!-- Datepicker -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js">
+    </script>
+
     <style>
         .modal-backdrop {
             /* bug fix - no overlay */
             display: none;
+        }
+
+        .dropdown-menu {
+            opacity: 1;
+            filter: alpha(opacity=100);
+            visibility: visible;
         }
 
     </style>
@@ -134,24 +152,25 @@
             <nav class="navbar navbar-default navbar-fixed">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                      </button>
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target="#navigation-example-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
                     </div>
                     <div class="collapse navbar-collapse">
-                      <ul class="nav navbar-nav navbar-right">
-                        <li>
-                          <a href="{{ url('/') }}/auth/logout">
-                            <p>Log out</p>
-                          </a>
-                        </li>
-                        <li class="separator hidden-lg hidden-md"></li>
-                      </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{ url('/') }}/auth/logout">
+                                    <p>Log out</p>
+                                </a>
+                            </li>
+                            <li class="separator hidden-lg hidden-md"></li>
+                        </ul>
                     </div>
-                  </div>
+                </div>
             </nav>
 
             @yield('content')
@@ -187,8 +206,6 @@
 </body>
 
 <!--   Core JS Files   -->
-<script src="{{ asset('js/public/jquery.3.2.1.min.js') }}" type="text/javascript"></script>
-<script src="{{ asset('js/public/bootstrap.min.js') }}" type="text/javascript"></script>
 
 <!--  Charts Plugin -->
 <script src="{{ asset('js/public/chartist.min.js') }}"></script>
@@ -209,7 +226,8 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <script>
     /* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
     var dropdown = document.getElementsByClassName('dropdown-btn');
