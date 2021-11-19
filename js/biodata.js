@@ -14,6 +14,8 @@ function getUpdate() {
       fetch(`${URL}/biodata/json/getBiodata/${id}`)
         .then(res => res.json())
         .then(res => {
+          const tgl_lahir = res.data.tanggal_santri.split('-')
+          const tgl_masuk = res.data.tanggal_masuk.split('-')
           document.querySelector('input[name=nama_santri]').value =
             res.data.nama_santri;
           document.querySelector('input[name=no_induk]').value =
@@ -21,13 +23,13 @@ function getUpdate() {
           document.querySelector('input[name=tempat_santri]').value =
             res.data.tempat_santri;
           document.querySelector('input[name=tanggal_santri]').value =
-            res.data.tanggal_santri;
+            `${tgl_lahir[2]}-${tgl_lahir[1]}-${tgl_lahir[0]}`
           document.querySelector('input[name=wali_santri]').value =
             res.data.wali_santri;
           document.querySelector('input[name=alamat_santri]').value =
             res.data.alamat_santri;
           document.querySelector('input[name=tanggal_masuk]').value =
-            res.data.tanggal_masuk;
+            `${tgl_masuk[2]}-${tgl_masuk[1]}-${tgl_masuk[0]}`
           document.querySelector('input[name=oldImage]').value =
             res.data.foto_santri;
           console.log(document.querySelector('input[name=oldImage]').value)

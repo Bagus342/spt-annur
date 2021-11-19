@@ -63,11 +63,11 @@
                                             <td>{{ $item->noinduk_santri }}</td>
                                             <td>{{ $item->nama_santri }}</td>
                                             <td>{{ $item->tempat_santri }}</td>
-                                            <td>{{ $item->tanggal_santri }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_santri) }}</td>
                                             <td>{{ $item->wali_santri }}</td>
                                             <td>{{ $item->alamat_santri }}</td>
                                             <td>{{ $item->status === 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
-                                            <td>{{ $item->tanggal_masuk }}</td>
+                                            <td>{{ formatTanggal($item->tanggal_masuk) }}</td>
                                             <td>
                                                 <center>
                                                     <!-- Button modal detail -->

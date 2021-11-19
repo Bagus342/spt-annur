@@ -55,10 +55,10 @@ class BiodataController extends Controller
                 'nama_santri' => $request->nama_santri,
                 'noinduk_santri' => $request->no_induk,
                 'tempat_santri' => $request->tempat_santri,
-                'tanggal_santri' => $request->tanggal_santri,
+                'tanggal_santri' => tanggal($request->tanggal_santri),
                 'wali_santri' => $request->wali_santri,
                 'alamat_santri' => $request->alamat_santri,
-                'tanggal_masuk' => $request->tanggal_masuk,
+                'tanggal_masuk' => tanggal($request->tanggal_masuk),
                 'foto_santri' => $image,
                 'status' => $request->status,
             ])
